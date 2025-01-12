@@ -1,0 +1,277 @@
+{
+  "navbar": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "blogs": "Blogs",
+    "customFurniture": "Custom Furniture",
+    "furnitureItems": {
+      "menu1": "Kitchen Furniture",
+      "menu2": "Living Room Furniture",
+      "menu3": "Hall Furniture",
+      "menu4": "Bedroom Furniture",
+      "menu5": "Bathroom Furniture",
+      "menu6": "Children's Room Furniture",
+      "menu7": "Commercial Furniture"
+    },
+    "contactUs": "Contact Us"
+  },
+
+  "hero": {
+    "heading": "Create Your Furniture with Atelier Honis",
+    "paragraph": "Atelier Honis creates custom furniture, combining quality, style, and functionality for your home.",
+    "inputPlaceholder": "Search furniture"
+  },
+
+  "footer": {
+    "description": "We create custom furniture for homes and businesses, tailored to client needs. We craft unique pieces.",
+    "quickLinks": {
+      "heading": "Quick Links",
+      "home": "Home",
+      "aboutUs": "About Us",
+      "services": "Services",
+      "testimonials": "Testimonials"
+    },
+    "testimonials": {
+      "heading": "Testimonials",
+      "support": "Support",
+      "shop": "Shop"
+    },
+
+    "legal": {
+      "terms": "Terms and Conditions",
+      "privacy": "Privacy Policy"
+    },
+    "copyright": "Copyright 2024"
+  },
+
+  "bestSolutions": {
+    "heading1": "Come and let's design together the best",
+    "heading2": "solutions for your home!",
+    "description": "From idea to execution, your furniture starts with a sketch!"
+  },
+
+  "transactionTimeline": {
+    "tagLine": {
+      "heading1": "Creating your furniture with",
+      "heading2": "Atelier Honis",
+      "link": "Explore all"
+    }
+  },
+
+  "furnitureTimeline": {
+    "items": [
+      {
+        "tag": "Shape",
+        "heading1": "Choose the shape",
+        "heading2": "of your furniture"
+      },
+      {
+        "tag": "Compartments",
+        "heading1": "Choose",
+        "heading2": "the compartments"
+      },
+      {
+        "tag": "Materials",
+        "heading1": "Choose the type of",
+        "heading2": "material PAL, MDF"
+      },
+      {
+        "tag": "Milling",
+        "heading1": "Choose",
+        "heading2": "the type of milling"
+      },
+      {
+        "tag": "Fronts",
+        "heading1": "Choose the color and",
+        "heading2": "type of front"
+      },
+      {
+        "tag": "Countertop",
+        "heading1": "Choose the type",
+        "heading2": "of countertop"
+      },
+      {
+        "tag": "Handles",
+        "heading1": "Choose the type of handles/",
+        "heading2": "or no handles"
+      },
+      {
+        "tag": "Finishing",
+        "heading1": "Making",
+        "heading2": "the final touches"
+      },
+      {
+        "tag": "Final Design",
+        "heading1": "Functional and",
+        "heading2": "customized for your needs"
+      }
+    ]
+  },
+
+  "galleryContent": {
+    "tag": "Gallery",
+    "heading1": "Explore the Gallery",
+    "heading2": "of Furniture",
+    "description": "Get inspired by our custom furniture designs for kitchens, bedrooms, living rooms, and more. Each piece is crafted to fit perfectly into your unique space."
+  },
+
+  "abouthero": {
+    "heading": "Custom Furniture from Atelier Honis Transforms Spaces.",
+    "description": "At Atelier Honis, we bring your vision to life with custom-made furniture crafted with expertise for every space in your home. From kitchens to bedrooms, our team offers personalized consultation, high-quality materials, and perfect assembly to enhance every corner of your interior with style and precision.",
+    "navlink": "Get in Touch"
+  },
+
+  "MadeToPerfection": {
+    "heading": "Made to Perfection",
+    "description": "Our team at ‘Atelier Honis’ will provide you with a wide range of furniture (particle board, HDF, HPL, MDF, plywood, countertops, etc.), the most suitable and prepared consultation based on your ideas, as well as professional assembly."
+  },
+
+  "AboutAtelierHonis": {
+    "subHeading": "About Us",
+    "heading1": "About",
+    "heading2": "Atelier Honis",
+    "description": "The idea of opening a furniture production company came from the experience of furnishing our own apartment, where we faced difficulties in collaborating with carpenters who did not provide professional consultancy, 3D design, or a reasonable execution time. Following this traditional model of working with a carpenter, until the complete furniture was finalized, the process proved to be extremely laborious, involving numerous trips between different stores to purchase chipboard, MDF, hardware, as well as for cutting and edging services."
+  },
+
+  "PrecisionCNC": {
+    "heading": "Precision CNC Craftsmanship with",
+    "heading2": "trusted material suppliers",
+    "description": "The philosophy of Atelier Honis is based on three very important steps for executing custom furniture: consultancy, design, and execution. We bring all these services together in one place to save you precious time. Instead of traveling between different stores, you can discuss all the details with a single consultant, which reduces wasted time and optimizes the execution process. This way, you can obtain furniture without stress."
+  },
+
+  "FurnitureToOrder": {
+    "heading": "Furniture",
+    "heading2": "to Order",
+    "itemheading1": "Consultancy",
+    "itemparagraph1": "In our consultancy process, your vision shapes every step, transforming ideas into reality with custom-made furniture.",
+    "itemheading2": "Design",
+    "itemparagraph2": "From 2D sketches to 3D concepts, we refine your vision, provide detailed designs, and offer transparent pricing.",
+    "itemheading3": "Execution",
+    "itemparagraph3": "After approval and payment, we handle data collection, production, transportation, and precise assembly for installation.",
+    "contactBtn": "Contact Us"
+  },
+
+  "FurnitureToOrderDetailItems": {
+    "heading1": "I. Consultancy:",
+    "subHeading1": "During our initial discussions, you will be informed about the following stages:",
+    "listItem1": "A preliminary discussion about the type of furniture, desired style, material, minimum and maximum budget, and scheduling the first meeting.",
+    "listItem2": "During the first meeting, materials will be finalized, on-site measurements will be taken, the most suitable solutions will be identified, the initial offer will be updated, the contract will be signed, and a 50% advance payment will be made.",
+    "listItem3": "Estimating execution times.",
+    "listItem4": "During the first home visit, measurements and a 2D sketch will be created.",
+    "extra1": "In the consultancy process, your ideas and wishes are essential, and with our help, they will become reality.",
+
+    "heading2": "II. Design:",
+    "listItem5": "Analyzing all technical solutions based on the 2D sketch, on-site measurements, and suggestions or reference images provided by the client.",
+    "listItem6": "Defining the furniture concept and designing it in 3D.",
+    "listItem7": "Incorporating client feedback into the project and finalizing the last version.",
+    "listItem8": "In this stage, you can select material colors and accessories, and visualize the designed furniture in the intended space.",
+    "extra2": "Our goal is to bring your ideas to life and transform them into a highly accurate representation of your vision. You will also receive a detailed price offer.",
+
+    "heading3": "III. Execution:",
+    "subHeading2": "This begins after the project is approved by the client and the remaining balance is paid.",
+    "listItem9": "Our team collects all the necessary firm data for project execution.",
+    "listItem10": "The furniture enters the production phase: cutting, edging, and CNC drilling.",
+    "listItem11": "Our team ensures the furniture is transported safely and arrives in perfect condition at the destination.",
+    "listItem12": "Assembly and installation of the furniture pieces are carried out according to the approved project specifications."
+  },
+
+  "BlogBanner": {
+    "subHeading": "Blogs",
+    "heading": "Transform Your Kitchen into a Modern Masterpiece"
+  },
+
+  "TipsBanner": {
+    "heading1": "Tips for a",
+    "heading2": "Modern and Functional Kitchen:",
+    "desc": "Do you have an old kitchen you'd like to modernize? The secret lies in choosing furniture that maximizes space. Use new materials that are scratch-resistant and explore a variety of colors. Step out of your comfort zone and choose bright colors for your kitchen."
+  },
+
+  "CustomFurnitureBanner": {
+    "subHeading": "Your custom furniture solution",
+    "heading": "Creative ideas overcome challenges, transforming them into beautiful and practical furniture."
+  },
+
+  "CustomFurnitureTipsBanner": {
+    "heading1": "Custom furniture",
+    "heading2": "options",
+    "desc": "Explore our collections with descriptions and buttons to learn more about each type of furniture."
+  },
+
+  "CustomFurnitureItems": {
+    "heading1": "Kitchen Furniture",
+    "listItem1": "Kitchen furniture combines practicality and beauty, offering storage space and an elegant design.",
+    "listItem2": "We create custom kitchens tailored to your preferences, from modern styles to classic designs.",
+    "listItem3": "Choose your materials and layout for a kitchen that perfectly fits your space and lifestyle.",
+    "listItem4": "The kitchen is often considered the heart of the home, and custom kitchen furniture allows you to transform it into a functional and aesthetically pleasing space. Whether you have a small or large kitchen, custom furniture helps you make the most of every corner.",
+
+    "heading2": "Living Room Furniture",
+    "listItem5": "The living room is where family time is spent; our custom furniture makes it comfortable and stylish.",
+    "listItem6": "In the living room, you can opt for custom bookshelves, modern consoles, coffee tables, or hidden storage spaces.",
+    "listItem7": "Custom furniture adds charm and functionality to your living area, making it feel welcoming.",
+    "listItem8": "Choose living room furniture based on your desired style and room dimensions, blending aesthetics with functionality to create a comfortable space.",
+
+    "heading3": "Hall Furniture",
+    "listItem9": "The hall is the first impression of your home, so it should be both attractive and practical.",
+    "listItem10": "Custom furniture can include a modern, elegant hall coat rack and a shoe rack, both highly useful in a hall.",
+    "listItem11": "A well-designed hall is both functional and stylish, setting the tone for the rest of your home.",
+    "listItem12": "Include lighting and mirrors to create a welcoming and spacious feel.",
+
+    "heading4": "Bedroom Furniture",
+    "listItem13": "The bedroom is your relaxation space; our custom furniture creates a comfortable, organized environment.",
+    "listItem14": "Bedroom furniture includes not only the bed, the central piece, but also nightstands, wardrobes, and vanity tables.",
+    "listItem15": "We design bedroom furniture that is both practical and aesthetic, making it a restful retreat.",
+    "listItem16": "High-quality materials ensure durability and long-lasting comfort.",
+
+    "heading5": "Bathroom Furniture",
+    "listItem17": "Bathroom furniture needs to be functional and fit into smaller spaces.",
+    "listItem18": "Choose from cabinets, shelves, and storage spaces to keep essentials organized.",
+    "listItem19": "Our water-resistant materials ensure that bathroom furniture is durable and long-lasting.",
+    "listItem20": "Elegant finishes and colors to enhance your bathroom's aesthetics.",
+
+    "heading6": "Children's Room Furniture",
+    "listItem21": "Children's furniture provides safety and fun, creating a happy space.",
+    "listItem22": "Choose beds with rounded edges, accessible storage, and creative storage solutions such as colorful cubbies.",
+    "listItem23": "We also design ergonomic desks and chairs to support your child's development.",
+    "listItem24": "Made from non-toxic materials for a safe, child-friendly environment.",
+
+    "heading7": "Commercial Furniture",
+    "listItem25": "Commercial furniture is specially designed to meet the functional and aesthetic needs of business spaces.",
+    "listItem26": "Commercial furniture is sturdy and adaptable for business environments.",
+    "listItem27": "Durable materials withstand heavy use, making our furniture ideal for busy commercial settings.",
+    "listItem28": "Customizable options to match your brand's aesthetic and functional needs.",
+
+    "loadMore": "Load more"
+  },
+
+  "contactUs": {
+    "bannerAlt": "Background Banner",
+    "heading": "Contact Us",
+    "description": "Get in touch with us for custom furniture inquiries and personalized consultations!",
+    "nameLabel": "Your Name*",
+    "nameError": "Please enter your name!",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "Contact Email*",
+    "emailError": "Please enter a valid email address!",
+    "invalidEmailError": "The entered email is not valid!",
+    "emailPlaceholder": "Enter your contact email",
+    "phoneLabel": "Phone Number",
+    "phonePatternError": "Phone number must contain 10 digits!",
+    "phonePlaceholder": "Enter your phone number",
+    "messageLabel": "Your Message*",
+    "messageError": "Please enter your message!",
+    "messagePlaceholder": "Enter your message",
+    "submitButton": "Submit",
+    "contactDetails": "Contact Details",
+    "address": "Schedule an appointment with one of our consultants at Str. Cazaban Nr. 50, Apartment 1, Oradea, Bihor, Romania",
+    "emailIconAlt": "Send us an email",
+    "emailTitle": "Send us an Email",
+    "emailDescription": "Contact Atelier Honis for general inquiries and partnerships.",
+    "phoneIconAlt": "Call us",
+    "phoneTitle": "Call us",
+    "phoneDescription": "Contact Atelier Honis to talk with our team!",
+    "supportIconAlt": "Support",
+    "supportTitle": "Support",
+    "supportDescription": "Resources and tools for furniture at Atelier Honis.",
+    "supportLink": "Support Center"
+  }
+}

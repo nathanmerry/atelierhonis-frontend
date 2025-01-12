@@ -1,0 +1,78 @@
+import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import { fetchTermsAndConditions } from "@/lib/api";
+import { languageDetector } from "@/lib/languageDetector";
+import { NextPage } from "next";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { PolicyWrapper, PrivacyPolicyWrapper } from "../privacy-policy";
+import { Fade } from "react-awesome-reveal";
+import { BlogDetailContainer } from "@/components/Pages/Blogs/styles";
+import { renderRichText } from "@/components/Pages/Blogs/BlogDetail";
+import { useI18n } from "@/hooks/useI18n";
+import SeoHead from "@/components/Layouts/SeoHead";
+
+const PrivacyPolicyPage: NextPage = () => {
+  const { t } = useI18n();
+  const [termsAndConditions, setTermsAndConditions] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const detectedLng = languageDetector.detect();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetchTermsAndConditions(detectedLng ?? "en");
+        console.log("privacyPolicy:", response.data.content);
+        setTermsAndConditions(response.data.content);
+      } catch (err) {
+        console.error("Error fetching terms and conditions:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [detectedLng]);
+
+  const title =
+    detectedLng === "ro"
+      ? "Termeni și Condiții - ATELIER HONIS"
+      : "Terms and Conditions - ATELIER HONIS";
+
+  const description =
+    detectedLng === "ro"
+      ? "Citiți Termenii și Condițiile pentru a înțelege cum ATELIER HONIS reglează utilizarea serviciilor noastre."
+      : "Read our Terms and Conditions to understand how ATELIER HONIS governs the use of our services.";
+
+  const keywords =
+    detectedLng === "ro"
+      ? "termeni și condiții, utilizarea serviciilor, ATELIER HONIS"
+      : "terms and conditions, service usage, ATELIER HONIS";
+
+  return (
+    <DefaultLayout>
+      <SeoHead
+        title={title}
+        description={description}
+        keywords={keywords}
+        ogImage="/Images/custom-furniture.jpg"
+        twitterImage="/Images/custom-furniture.jpg"
+      />
+
+      <PolicyWrapper>
+        <Fade direction="up">
+          <h2 className="heading" data-aos="fade-bottom">
+            {t("footer.legal.terms")}
+          </h2>
+        </Fade>
+      </PolicyWrapper>
+      <BlogDetailContainer>
+        <PrivacyPolicyWrapper>
+          {termsAndConditions && renderRichText(termsAndConditions)}
+        </PrivacyPolicyWrapper>
+      </BlogDetailContainer>
+    </DefaultLayout>
+  );
+};
+
+export default PrivacyPolicyPage;

@@ -1,0 +1,274 @@
+{
+  "navbar": {
+    "home": "Acasă",
+    "aboutUs": "Despre noi",
+    "blogs": "Bloguri",
+    "customFurniture": "Mobilă la comandă",
+    "furnitureItems": {
+      "menu1": "Mobilă bucătărie",
+      "menu2": "Mobilă living",
+      "menu3": "Mobilă hol",
+      "menu4": "Mobilă dormitor",
+      "menu5": "Mobilier baie",
+      "menu6": "Mobilier pentru camera copiilor",
+      "menu7": "Mobilier comercial"
+    },
+    "contactUs": "Contactați-ne"
+  },
+  "hero": {
+    "heading": "Creează-ți mobilierul cu Atelier Honis",
+    "paragraph": "Atelier Honis realizează mobilă la comandă îmbinând calitatea, stilul și funcționalitatea, pentru casa dumneavoastră.",
+    "inputPlaceholder": "Caută mobilă"
+  },
+
+  "footer": {
+    "description": "Confecționăm mobilier personalizat pentru case și afaceri, adaptat nevoilor clienților. Creăm piese unice.",
+    "quickLinks": {
+      "heading": "Legături rapide",
+      "home": "Acasă",
+      "aboutUs": "Despre noi",
+      "services": "Servicii",
+      "testimonials": "Mărturii"
+    },
+    "testimonials": {
+      "heading": "Mărturii",
+      "support": "Sprijin",
+      "shop": "Magazin"
+    },
+
+    "legal": {
+      "terms": "Termeni și condiții",
+      "privacy": "Politica de confidențialitate"
+    },
+    "copyright": "Copyright 2024"
+  },
+
+  "bestSolutions": {
+    "heading1": "Vino să proiectăm împreună cele mai",
+    "heading2": "bune soluții pentru casa ta!",
+    "description": "De la idee la execuție, mobilierul tău începe cu o schiță!"
+  },
+
+  "transactionTimeline": {
+    "tagLine": {
+      "heading1": "Crearea mobilierului tău cu",
+      "heading2": "Atelier Honis",
+      "link": "Explorați toate"
+    }
+  },
+
+  "furnitureTimeline": {
+    "items": [
+      {
+        "tag": "Formă",
+        "heading1": "Alege forma",
+        "heading2": "mobilierului tău"
+      },
+      {
+        "tag": "Compartimentare",
+        "heading1": "Alege",
+        "heading2": "compartimentarea"
+      },
+      {
+        "tag": "Materiale",
+        "heading1": "Tipul de material:",
+        "heading2": "PAL, MDF"
+      },
+      {
+        "tag": "Frezare",
+        "heading1": "Tipul",
+        "heading2": "de frezare"
+      },
+      {
+        "tag": "Fronturi",
+        "heading1": "Alege culoarea și",
+        "heading2": "tipul de front"
+      },
+      {
+        "tag": "Blat",
+        "heading1": "Tipul",
+        "heading2": "de blat"
+      },
+      {
+        "tag": "Mânere",
+        "heading1": "Tipul de mânere/",
+        "heading2": "fără mânere"
+      },
+      {
+        "tag": "Retușuri",
+        "heading1": "Facem",
+        "heading2": "ultimele retușuri"
+      },
+      {
+        "tag": "Design final",
+        "heading1": "Funcțional și",
+        "heading2": "personalizat pentru nevoile tale"
+      }
+    ]
+  },
+
+  "galleryContent": {
+    "tag": "Galerie",
+    "heading1": "Explorați galeria",
+    "heading2": "de mobilier",
+    "description": "Inspirați-vă din modelele noastre de mobilier personalizate pentru bucătării, dormitoare, camere de zi și alte încăperi. Fiecare piesă este realizată pentru a se potrivi perfect în casa ta."
+  },
+
+  "abouthero": {
+    "heading": "Mobilierul la comandă de la Atelier Honis transformă spațiile.",
+    "description": "Cu Atelier Honis, viziunea ta prinde viață prin mobilier la comandă realizat pentru fiecare spațiu din casa ta. De la bucătării până la dormitoare, echipa noastră oferă consultanță, materiale de înaltă calitate și asamblare perfectă pentru a personaliza fiecare spațiu al interiorului dumneavoastră.",
+    "navlink": "Luați legătura"
+  },
+
+  "MadeToPerfection": {
+    "heading": "Funcționalitate în formă modernă",
+    "description": "Echipa noastră Atelier Honis vă pune la dispoziție o gamă largă de mobilier din PAL, MDF, HDF, HPL, etc. Vă punem la dispoziție materiale de cea mai înaltă calitate și servicii prompte, pentru ca dumneavoastră să vă puteţi bucura de casa visurilor, aşa cum meritați."
+  },
+
+  "AboutAtelierHonis": {
+    "subHeading": "Despre noi",
+    "heading1": "Despre",
+    "heading2": "Atelier Honis",
+    "description": "Ideea de a deschide o firmă de producție mobilier a apărut în urma experienței de mobilare a propriului apartament, unde am întâmpinat dificultăți în colaborarea cu tâmplari care nu ofereau consultanță profesională, proiectare 3D sau un timp de execuție rezonabil. Urmând  acest model tradițional de lucru cu un tâmplar, până la finalizarea  completă a mobilierului, procesul s-a dovedit a fi unul extrem de  laborios, implicând numeroase deplasări intre magazine pentru alegerea materialelor, culorilor şi a feroneriei."
+  },
+
+  "PrecisionCNC": {
+    "heading": "Măiestrie CNC de precizie cu",
+    "heading2": "furnizori de încredere",
+    "description": "Filozofia Atelier Honis se bazează pe trei pași foarte importanți pentru executarea mobilierului la comandă: consultanță, proiectare și execuție. Adunăm toate aceste servicii într-un singur loc pentru a vă economisi timp prețios. În loc să vă deplasați între diferite magazine, puteți discuta toate detaliile cu un singur consultant, ceea ce reduce timpul pierdut și optimizează procesul de execuție. Astfel, puteți obține mobilă fără stres."
+  },
+
+  "FurnitureToOrder": {
+    "heading": "Mobilier la",
+    "heading2": "comandă",
+    "itemheading1": "Consultață",
+    "itemparagraph1": "În procesul nostru de consultață, viziunea ta modelează fiecare pas, transformând ideile în realitate cu mobilier la comandă.",
+    "itemheading2": "Proiectare",
+    "itemparagraph2": "De la schițe 2D la concepte 3D, vă rafinăm viziunea, vă oferim proiectare și oferim prețuri avantajoase.",
+    "itemheading3": "Execuţie",
+    "itemparagraph3": "După aprobare și plată, ne ocupăm de colectarea datelor, producție, transport și asamblare precisă pentru instalare.",
+    "contactBtn": "Contactaţi-ne"
+  },
+
+  "FurnitureToOrderDetailItems": {
+    "heading1": "I. Consultață:",
+    "subHeading1": "În cadrul primelor noastre discuții, veți fi informat cu privire la următoarele etape:",
+    "listItem1": "o discuție preliminară legată de tipul de mobilier, stilul dorit, materialul dorit, un buget minim și maxim și stabilirea primei întâlniri",
+    "listItem2": "În cadrul primei întâlniri se vor stabili din nou materialele, se vor face măsurători la fața locului și identificarea celor mai adecvate soluții. Se va reface oferta inițială, se va semna contractul și se va efectua plata avansului de 50%",
+    "listItem3": "estimarea timpilor de execuție.",
+    "listItem4": "tot în cadrul primei vizite la domiciliu se fac măsurători și o schiță 2D",
+    "extra1": "În cadrul procesului de consultață, ideile și dorințele dumneavoastră sunt esențiale, iar cu ajutorul nostru acestea vor deveni realitate.",
+
+    "heading2": "II. Proiectare:",
+    "listItem5": "Analizarea tuturor soluțiilor tehnice, bazate pe schița 2D și măsurătorile din teren, precum și sugestiile primite de la client/poze",
+    "listItem6": "Stabilirea conceptului de mobilă și proiectarea acestuia în 3D",
+    "listItem7": "Modificări aduse proiectului de către client și finalizarea ultimei versiuni",
+    "listItem8": "În această etapă, puteți alege culorile materialelor și accesoriile, și veți putea vizualiza mobilierul proiectat în spațiul pentru care a fost conceput.",
+    "extra2": "Scopul nostru este ca ideile dumneavoastră să prindă contur și să se transforme într-o imagine cât mai fidelă a ceea ce vă doriți. De asemenea, veți primi o ofertă de preț detaliată.",
+
+    "heading3": "III. Execuție:",
+    "subHeading2": "Aceasta începe după aprobarea proiectului de către client și achitarea diferenței de preț.",
+    "listItem9": "Echipa noastră preia toate datele ferme necesare pentru execuția proiectului.",
+    "listItem10": "Mobilierul intră în faza de producție: debitare, căntuire, găurire CNC.",
+    "listItem11": "Echipa noastră se ocupă de transportul mobilierului, asigurându-se că acesta ajunge în condiții perfecte la destinație.",
+    "listItem12": "Urmează asamblarea și montajul pieselor de mobilier, conform specificațiilor proiectului aprobat."
+  },
+  "BlogBanner": {
+    "subHeading": "Bloguri",
+    "heading": "Transformă-ți bucătăria într-o capodopera modernă"
+  },
+
+  "TipsBanner": {
+    "heading1": "Sfaturi pentru o bucătărie",
+    "heading2": "modernă și funcțională:",
+    "desc": "Ai o bucătărie veche pe care vrei să o modernizezi. Secretul constă în alegerea mobilierului care maximizează spațiul. Utilizați materiale noi care sunt rezistente la zgârieturi și explorați o varietate de culori. Ieși din zona ta de confort și alege culori strălucitoare pentru bucătărie."
+  },
+
+  "CustomFurnitureBanner": {
+    "subHeading": "Soluția ta de mobilier la comandă",
+    "heading": "Ideile creative depășesc provocările, transformându-le în mobilier frumos și practic."
+  },
+
+  "CustomFurnitureTipsBanner": {
+    "heading1": "Opțiuni de mobilier",
+    "heading2": "personalizat",
+    "desc": "Descoperiţi colecțiile noastre cu descrieri detaliate pentru a afla mai multe despre fiecare tip de mobilier."
+  },
+
+  "CustomFurnitureItems": {
+    "heading1": "Mobilă bucătărie",
+    "listItem1": "Mobilierul de bucătărie combină caracterul practic și frumusețea, oferind spațiu de depozitare și un design elegant.",
+    "listItem2": "Creăm bucătării personalizate adaptate preferințelor dumneavoastră, de la stiluri moderne la stiluri clasice.",
+    "listItem3": "Alegeți materialele și amenajarea pentru o bucătărie care se potrivește perfect spațiului și stilului tău de viață.",
+    "listItem4": "Bucătăria este adesea considerată inima casei, iar mobila la comandă pentru bucătărie îți oferă posibilitatea să o transformi într-un spațiu funcțional și estetic plăcut. Indiferent dacă ai o bucătărie de dimensiuni mici sau mari, mobilierul personalizat te ajută să folosești eficient fiecare colț.",
+
+    "heading2": "Mobilă living",
+    "listItem5": "Camera de zi este locul în care se petrece timpul în familie; mobilierul nostru personalizat îl face confortabil și elegant.",
+    "listItem6": "În living, poți opta pentru biblioteci personalizate, comode moderne, mese de cafea sau spații de depozitare ascunse.",
+    "listItem7": "Mobilierul personalizat adaugă farmec și funcționalitate zonei tale de zi, făcându-l să se simtă primitor.",
+    "listItem8": "Alege mobila living în funcție de stilul dorit și dimensiunile camerei, combinând estetica cu funcționalitatea pentru a crea un spațiu confortabil.",
+
+    "heading3": "Mobilier hol",
+    "listItem9": "Holul este prima impresie a casei tale, așa că ar trebui să fie atât atractiv, cât și practic.",
+    "listItem10": "Mobilierul personalizat poate include un cuier hol modern și elegant, sau un pantofar atât de util într-un hol.",
+    "listItem11": "Un hol bine proiectat este atât funcțional, cât și elegant, dând tonul pentru restul casei tale.",
+    "listItem12": "Includeți iluminat și oglinzi pentru a crea o senzație primitoare și spațioasă.",
+
+    "heading4": "Mobilă dormitor",
+    "listItem13": "Dormitorul este spațiul tău de relaxare; mobilierul nostru personalizat creează un mediu confortabil, organizat.",
+    "listItem14": "Mobila pentru dormitor conține, pe lângă patul de dormitor care este piesa centrală, și noptiere, dulapuri, măsuțe de toaletă.",
+    "listItem15": "Proiectăm mobilier de dormitor atât practic, cât și estetic, făcându-l un refugiu odihnitor.",
+    "listItem16": "Materialele de înaltă calitate asigură durabilitate și confort de lungă durată.",
+
+    "heading5": "Mobilier baie",
+    "listItem17": "Mobilierul de baie trebuie să fie funcțional și să se potrivească spațiilor mai mici.",
+    "listItem18": "Alegeți dintre dulapuri, rafturi și spații de depozitare pentru a păstra lucrurile esențiale organizate.",
+    "listItem19": "Materialele noastre rezistente la umezeală asigură ca mobilierul de baie să fie durabil și de lungă durată.",
+    "listItem20": "Finisaje și culori elegante pentru a îmbunătăți estetica băii dumneavoastră.",
+
+    "heading6": "Mobilier pentru camera copiilor",
+    "listItem21": "Mobilierul pentru camera de copii joacă un rol esenţial în crearea unui spațiu funcțional, sigur şi stimulativ pentru dezvoltarea celor mici.",
+    "listItem22": "Alegeți paturi cu margini rotunjite, depozitare accesibilă și soluții creative de depozitare, cum ar fi cutiile colorate.",
+    "listItem23": "De asemenea, proiectăm birouri și scaune ergonomice pentru a sprijini dezvoltarea copilului dumneavoastră.",
+    "listItem24": "Fabricat din materiale non-toxice pentru un mediu sigur, prietenos copiilor.",
+
+    "heading7": "Mobilier comercial",
+    "listItem25": "Mobilierul comercial este special conceput pentru a satisface nevoile funcționale și estetice ale spațiilor de afaceri.",
+    "listItem26": "Mobilierul comercial este robust și adaptabil pentru spații de afaceri.",
+    "listItem27": "Materialele durabile rezistă utilizării grele, ceea ce face mobila noastră ideală pentru mediile comerciale aglomerate.",
+    "listItem28": "Opțiuni personalizabile pentru a se potrivi cu nevoile de estetică și funcționalitate ale mărcii dvs.",
+
+    "loadMore": "Încărcați mai multe"
+  },
+  "contactUs": {
+    "bannerAlt": "Banner de fundal",
+    "heading": "Contactaţi-ne",
+    "description": "Luați legătura cu noi pentru întrebări despre mobilier la comandă și consultanță personalizată!",
+    "nameLabel": "Numele dumneavoastră*",
+    "nameError": "Vă rugăm să introduceți numele dumneavoastră!",
+    "namePlaceholder": "Introduceți numele dumneavoastră",
+    "emailLabel": "E-mail de contact*",
+    "emailError": "Vă rugăm să introduceți o adresă de e-mail validă!",
+    "invalidEmailError": "E-mailul introdus nu este valid!",
+    "emailPlaceholder": "Introduceți e-mailul de contact",
+    "phoneLabel": "Număr de telefon",
+    "phonePatternError": "Numărul de telefon trebuie să conțină 10 cifre!",
+    "phonePlaceholder": "Introduceți numărul de telefon",
+    "messageLabel": "Mesajul dumneavoastră*",
+    "messageError": "Vă rugăm să introduceți mesajul dumneavoastră!",
+    "messagePlaceholder": "Introduceți mesajul dumneavoastră",
+    "submitButton": "Trimiteți",
+    "contactDetails": "Date de contact",
+    "address": "Programează o întâlnire cu unul dintre consultanții noștri la Str. Cazaban Nr. 50, Apartament 1, Oradea, Bihor, România",
+    "emailIconAlt": "Trimiteți-ne un e-mail",
+    "emailTitle": "Trimite-ne un e-mail",
+    "emailDescription": "Contactați Atelier Honis pentru întrebări generale și parteneriate.",
+    "phoneIconAlt": "Sună-ne",
+    "phoneTitle": "Sună-ne",
+    "phoneDescription": "Contactați Atelier Honis pentru a discuta cu echipa noastră!",
+    "supportIconAlt": "Sprijin",
+    "supportTitle": "Sprijin",
+    "supportDescription": "Resurse și instrumente pentru mobilier la Atelier Honis.",
+    "supportLink": "Centru de suport"
+  }
+}
