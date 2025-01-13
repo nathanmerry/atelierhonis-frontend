@@ -283,7 +283,7 @@ const Header: React.FC<HeaderPropsType> = () => {
         <Fade direction="down">
           <div className="menu_items">
             {menuItems.map((item, index) => (
-              <div className="main_item">
+              <div className="main_item" key={index}>
                 <span
                   key={index}
                   onClick={item.href ? () => redirect(item.href) : undefined}

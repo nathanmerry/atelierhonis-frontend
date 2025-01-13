@@ -248,6 +248,7 @@ const FurnitureGallery: React.FC = () => {
 
       {GalleryPics.map((image, index) => (
         <ImageWrapper
+          key={index}
           className={`Image-${index} ${
             fullScreenIndex === index ? "maximize" : ""
           }`}
