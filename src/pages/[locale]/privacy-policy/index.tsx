@@ -4,7 +4,6 @@ import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ContainerMain } from "../../../../public/Styles/Layout/styles";
-import { renderRichText } from "@/components/Pages/Blogs/BlogDetail";
 import { Fade } from "react-awesome-reveal";
 import { BlogDetailContainer } from "@/components/Pages/Blogs/styles";
 import { i18nConfig } from "../../../../i18n";
