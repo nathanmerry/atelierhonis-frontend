@@ -10,29 +10,52 @@ import { BlogDetailContainer } from "@/components/Pages/Blogs/styles";
 import { renderRichText } from "@/components/Pages/Blogs/BlogDetail";
 import { useI18n } from "@/hooks/useI18n";
 import SeoHead from "@/components/Layouts/SeoHead";
+import { useSearchParams } from "next/navigation";
 
 const PrivacyPolicyPage: NextPage = () => {
   const { t } = useI18n();
+  const searchParams = useSearchParams();
   const [termsAndConditions, setTermsAndConditions] = useState(null);
   const [loading, setLoading] = useState(true);
   const detectedLng = languageDetector.detect();
 
   useEffect(() => {
+    const languageMap: { [key: string]: string } = {
+      ro: "rom",
+      en: "en",
+    };
+
+    const detectedLand = languageMap[detectedLng ?? "en"] || "en";
+
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetchTermsAndConditions(detectedLng ?? "en");
-        console.log("privacyPolicy:", response.data.content);
-        setTermsAndConditions(response.data.content);
+        const response = await fetchTermsAndConditions(detectedLand);
+        console.log("Terms And Conditions:", response);
+
+        // Find the matching policy for the detected language
+        const policyContent = response.find(
+          (policy: any) =>
+            policy.lang.toLowerCase() === detectedLand.toLowerCase()
+        )?.value;
+
+        if (policyContent) {
+          setTermsAndConditions(policyContent);
+        } else {
+          const fallbackPolicyContent = response.find(
+            (policy: any) => policy.lang === "en"
+          )?.value;
+          setTermsAndConditions(fallbackPolicyContent);
+        }
       } catch (err) {
-        console.error("Error fetching terms and conditions:", err);
+        console.error("Error fetching Terms And Conditions:", err);
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, [detectedLng]);
+  }, [detectedLng, searchParams]);
 
   const title =
     detectedLng === "ro"
@@ -68,7 +91,13 @@ const PrivacyPolicyPage: NextPage = () => {
       </PolicyWrapper>
       <BlogDetailContainer>
         <PrivacyPolicyWrapper>
-          {termsAndConditions && renderRichText(termsAndConditions)}
+          {termsAndConditions && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: termsAndConditions,
+              }}
+            />
+          )}
         </PrivacyPolicyWrapper>
       </BlogDetailContainer>
     </DefaultLayout>

@@ -9,6 +9,7 @@ import {
   message,
   Spin,
   notification,
+  Checkbox,
 } from "antd";
 import Link from "next/link";
 import { ContainerMain } from "../../../../public/Styles/Layout/styles";
@@ -18,30 +19,31 @@ import SeoHead from "@/components/Layouts/SeoHead";
 import { Fade } from "react-awesome-reveal";
 import { LoadingOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import { useRouteRedirect } from "@/hooks/useRouteRedirect";
 
 const ContactUsBanner: React.FC = () => {
   const { t } = useI18n();
   const [contactForm] = Form.useForm();
   const [isLoading, setIsLoading] = useState(false);
+  const { redirect } = useRouteRedirect();
 
   const handleSubmit = async (values: any) => {
     console.log("Form Values:", values);
-    const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/contact-form-submissions`;
-    console.log("Submit Url:", "url");
+    const url = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/contact-us`; // Ensure this URL is correct
+
     try {
       setIsLoading(true);
+
       const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          data: {
-            name: values.name,
-            email: values.email,
-            contactInfo: values.phone,
-            Message: values.message,
-          },
+          name: values.name,
+          email: values.email,
+          contact_info: values.contact_info,
+          message: values.message,
         }),
       });
 
@@ -53,17 +55,16 @@ const ContactUsBanner: React.FC = () => {
       console.log("Submission successful:", result);
 
       notification.success({
-        message: "Mulțumim pentru mesaj!",
-        description:
-          "Vă mulțumim că ne-ați contactat! Unul dintre colegii noştri vă va răspunde în cel mai scurt timp, fie prin email, fie la numărul de telefon furnizat.",
+        message: t("contactUs.successMsg"),
+        description: t("contactUs.successDesc"),
         placement: "topRight",
         duration: 5,
       });
 
-      contactForm.resetFields();
+      contactForm.resetFields(); // Reset the form after successful submission
     } catch (error) {
       console.error("Submission failed:", error);
-      message.error("Contact Form Submition Failed!");
+      message.error("Contact Form Submission Failed!");
     } finally {
       setIsLoading(false);
     }
@@ -142,7 +143,7 @@ const ContactUsBanner: React.FC = () => {
             <Fade direction="up">
               <Form.Item
                 label={t("contactUs.phoneLabel")}
-                name="phone"
+                name="contact_info"
                 rules={[{ required: false }]}
               >
                 <Input placeholder={t("contactUs.phonePlaceholder")} />
@@ -163,6 +164,30 @@ const ContactUsBanner: React.FC = () => {
                 />
               </Form.Item>
             </Fade>
+
+            <Form.Item
+              name="agreement"
+              valuePropName="checked"
+              rules={[
+                {
+                  validator: (_, value) =>
+                    value
+                      ? Promise.resolve()
+                      : Promise.reject(new Error("Should accept agreement")),
+                },
+              ]}
+            >
+              <Checkbox>
+                {t("contactUs.agree1")}{" "}
+                <span onClick={() => redirect("/privacy-policy")} style={{color:'blue'}}>
+                  {t("contactUs.agree2")}
+                </span>{" "}
+                <span onClick={() => redirect("/terms-and-condition")} style={{color:'blue'}}>
+                  {t("contactUs.agree3")}
+                </span>{" "}
+                {t("contactUs.agree4")}
+              </Checkbox>
+            </Form.Item>
 
             <Fade direction="up">
               <Button type="primary" htmlType="submit" className="submit_btn">

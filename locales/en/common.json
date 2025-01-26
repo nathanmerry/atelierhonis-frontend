@@ -272,6 +272,12 @@
     "supportIconAlt": "Support",
     "supportTitle": "Support",
     "supportDescription": "Resources and tools for furniture at Atelier Honis.",
-    "supportLink": "Support Center"
+    "supportLink": "Support Center",
+    "agree1": "I agree to",
+    "agree2": "Terms & Conditions,",
+    "agree3": "Privacy Policy,",
+    "agree4": "and the GDPR Policy",
+    "successMsg": "Thank you for your message!",
+    "successDesc": "Thank you for reaching out to us! One of our colleagues will respond to you as soon as possible, either via email or the phone number provided."
   }
 }

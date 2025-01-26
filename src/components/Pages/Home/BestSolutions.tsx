@@ -116,9 +116,10 @@ const MaximizeImageWrapper = styled.div`
   }
 
   .control_btn {
+    opacity: 0;
     position: absolute;
-    top: -1.5rem;
-    left: -3.25rem;
+    top: 1.5rem;
+    right: 1.5rem;
     z-index: 19;
 
     border-radius: 2.3125rem;
@@ -165,12 +166,12 @@ const MaximizeImageWrapper = styled.div`
     .control_btn {
       position: fixed;
       top: 1rem;
-      left: 1rem;
+      right: 1rem;
       z-index: 9999;
     }
 
     img {
-      max-height: calc(100vh - 4rem);
+      max-height: calc(100vh - 3rem);
       width: 100%;
       object-fit: contain;
     }
@@ -185,6 +186,12 @@ const MaximizeImageWrapper = styled.div`
     .control_btn {
       top: 0.5rem !important;
       left: 0.5rem !important;
+    }
+  }
+
+  &:hover {
+    .control_btn {
+      opacity: 1;
     }
   }
 `;

@@ -11,6 +11,7 @@ import { i18nConfig } from "../../../../i18n";
 import { languageDetector } from "@/lib/languageDetector";
 import { useI18n } from "@/hooks/useI18n";
 import SeoHead from "@/components/Layouts/SeoHead";
+import { useSearchParams } from "next/navigation";
 
 export const PrivacyPolicyWrapper = styled.div`
   padding: 5rem 0;
@@ -40,17 +41,39 @@ export const PolicyWrapper = styled.div`
 
 const PrivacyPolicyPage: NextPage = () => {
   const { t } = useI18n();
+  const searchParams = useSearchParams();
   const [privacyPolicy, setPrivacyPolicy] = useState(null);
   const [loading, setLoading] = useState(true);
   const detectedLng = languageDetector.detect();
 
   useEffect(() => {
+    const languageMap: { [key: string]: string } = {
+      ro: "rom",
+      en: "en",
+    };
+
+    const detectedLand = languageMap[detectedLng ?? "en"] || "en";
+
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetchPrivacyPolicy(detectedLng ?? "en");
-        console.log("privacyPolicy:", response.data.content);
-        setPrivacyPolicy(response.data.content);
+        const response = await fetchPrivacyPolicy(detectedLand);
+        console.log("privacyPolicy:", response);
+
+        // Find the matching policy for the detected language
+        const policyContent = response.find(
+          (policy: any) =>
+            policy.lang.toLowerCase() === detectedLand.toLowerCase()
+        )?.value;
+
+        if (policyContent) {
+          setPrivacyPolicy(policyContent);
+        } else {
+          const fallbackPolicyContent = response.find(
+            (policy: any) => policy.lang === "en"
+          )?.value;
+          setPrivacyPolicy(fallbackPolicyContent);
+        }
       } catch (err) {
         console.error("Error fetching privacy policy:", err);
       } finally {
@@ -59,7 +82,7 @@ const PrivacyPolicyPage: NextPage = () => {
     };
 
     fetchData();
-  }, [detectedLng]);
+  }, [detectedLng, searchParams]);
 
   // Dynamic SEO Meta Tags based on the locale
   const title =
@@ -96,7 +119,13 @@ const PrivacyPolicyPage: NextPage = () => {
       </PolicyWrapper>
       <BlogDetailContainer>
         <PrivacyPolicyWrapper>
-          {privacyPolicy && renderRichText(privacyPolicy)}
+          {privacyPolicy && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: privacyPolicy,
+              }}
+            />
+          )}
         </PrivacyPolicyWrapper>
       </BlogDetailContainer>
     </DefaultLayout>

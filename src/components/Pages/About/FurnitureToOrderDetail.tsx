@@ -46,10 +46,10 @@ const ImageWrapper = styled.div`
 
   .control_btn {
     position: absolute;
-    top: -2rem;
-    left: -2rem;
+    top: 1rem;
+    right: 1rem;
     z-index: 19;
-
+    opacity: 0;
     border-radius: 2.3125rem;
     background: #ff6f00 !important;
 
@@ -63,6 +63,12 @@ const ImageWrapper = styled.div`
 
     svg path {
       fill: #ffffff;
+    }
+  }
+
+  &:hover {
+    .control_btn {
+      opacity: 1;
     }
   }
 
@@ -95,7 +101,7 @@ const ImageWrapper = styled.div`
     .control_btn {
       position: fixed;
       top: 1rem;
-      left: 1rem;
+      right: 1rem;
       z-index: 9999;
     }
 

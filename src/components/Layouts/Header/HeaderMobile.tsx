@@ -110,6 +110,36 @@ const menuItems = [
     key: "navbar.customFurniture",
     icon: <CustomFurnitureIcon />,
     href: "/custom-furniture",
+    children: [
+      {
+        key: "navbar.furnitureItems.menu1",
+        href: "/custom-furniture#mobila-bucatarie",
+      },
+      {
+        key: "navbar.furnitureItems.menu2",
+        href: "/custom-furniture#mobila-living",
+      },
+      {
+        key: "navbar.furnitureItems.menu3",
+        href: "/custom-furniture#mobilier-hol",
+      },
+      {
+        key: "navbar.furnitureItems.menu4",
+        href: "/custom-furniture#mobila-dormitor",
+      },
+      {
+        key: "navbar.furnitureItems.menu5",
+        href: "/custom-furniture#mobilier-baie",
+      },
+      {
+        key: "navbar.furnitureItems.menu6",
+        href: "/custom-furniture#mobilier-pentru-camera-copiilor",
+      },
+      {
+        key: "navbar.furnitureItems.menu7",
+        href: "/custom-furniture#mobilier-comercial",
+      },
+    ],
   },
   { key: "navbar.contactUs", icon: <ContactUsIcon />, href: "/contact-us" },
 ];
@@ -181,14 +211,35 @@ const HeaderMobile: React.FC<HeaderMobilePropTypes> = () => {
 
         <div className="menu_items">
           {menuItems.map((item, index) => (
-            <span
-              key={index}
-              onClick={() => redirect(item.href)}
-              className="link_item"
-              style={{ cursor: "pointer" }}
-            >
-              {item.icon} {t(item.key)}
-            </span>
+            <div key={index} style={{ marginBottom: "10px" }}>
+              {/* Render parent menu item */}
+              <span
+                onClick={() => redirect(item.href)}
+                className="link_item"
+                style={{
+                  cursor: "pointer",
+                  fontWeight: item.children ? "bold" : "normal",
+                }}
+              >
+                {item.icon} {t(item.key)}
+              </span>
+
+              {/* Render submenu if children exist */}
+              {item.children && (
+                <div style={{ marginLeft: "35px", marginTop: "5px" }}>
+                  {item.children.map((child, childIndex) => (
+                    <div
+                      key={childIndex}
+                      onClick={() => redirect(child.href)}
+                      className="link_item"
+                      style={{ cursor: "pointer" }}
+                    >
+                      {t(child.key)}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </StyledDrawer>

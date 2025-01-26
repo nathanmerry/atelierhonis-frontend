@@ -1,11 +1,17 @@
 "use client";
 
 import { useI18n } from "@/hooks/useI18n";
-import { Button } from "antd";
+import { Button, Modal } from "antd";
 import Image from "next/image";
 import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
 
 const FurnitureGalleryContainer = styled.div`
   margin-top: 6.25rem;
@@ -142,9 +148,9 @@ const ImageWrapper = styled.div`
   .control_btn {
     position: absolute;
     top: 1rem;
-    left: 1rem;
+    right: 1rem;
     z-index: 19;
-
+    opacity: 0;
     border-radius: 2.3125rem;
     background: #ff6f00 !important;
 
@@ -158,6 +164,12 @@ const ImageWrapper = styled.div`
 
     svg path {
       fill: #ffffff;
+    }
+  }
+
+  &:hover {
+    .control_btn {
+      opacity: 1;
     }
   }
 
@@ -189,13 +201,13 @@ const ImageWrapper = styled.div`
 
     .control_btn {
       position: fixed;
-      top: -1rem;
-      left: -2rem;
+      top: 1.5rem;
+      right: 1.5rem;
       z-index: 9999;
     }
 
     img {
-      max-height: calc(100vh - 4rem);
+      max-height: calc(100vh - 3rem);
       width: 100%;
       object-fit: contain;
     }
@@ -217,15 +229,66 @@ const GalleryPics = [
   "/Images/Home/Gallery8.png",
 ];
 
+const FullScreenModal = styled(Modal)`
+  height: 100%;
+  width: 100% !important;
+
+  .ant-modal-content {
+    border-radius: 0;
+    background-color: #00000084;
+    
+    .ant-modal-close {
+      background-color: #ffffff;
+    }
+
+    .swiper {
+      padding: 2rem 0;
+      height: calc(100vh - 2.5rem);
+      .swiper-wrapper {
+        .swiper-slide {
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+
+      /* Style the next and previous arrows */
+      .swiper-button-next,
+      .swiper-button-prev {
+        height: 2rem;
+        width: 2rem;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        &::after {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+`;
+
 const FurnitureGallery: React.FC = () => {
   const { t } = useI18n();
 
   // State to track the index of the fullscreen item
   const [fullScreenIndex, setFullScreenIndex] = useState<number | null>(null);
-  const [fullScreen, setFullScreen] = useState(false);
-  const handleToggleFullScreen = (index: number) => {
-    // If the current index is already fullscreen, reset it; otherwise, set it
-    setFullScreenIndex(fullScreenIndex === index ? null : index);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  const openModal = (index: number) => {
+    setCurrentSlideIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -247,19 +310,14 @@ const FurnitureGallery: React.FC = () => {
       </div>
 
       {GalleryPics.map((image, index) => (
-        <ImageWrapper
-          key={index}
-          className={`Image-${index} ${
-            fullScreenIndex === index ? "maximize" : ""
-          }`}
-        >
+        <ImageWrapper key={index} className={`Image-${index}`}>
           <Fade direction={index % 2 === 0 ? "left" : "right"} key={index}>
             <span>
               <Button
                 type="primary"
                 htmlType="button"
                 className="control_btn"
-                onClick={() => handleToggleFullScreen(index)}
+                onClick={() => openModal(index)}
               >
                 {fullScreenIndex === index ? (
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -282,6 +340,35 @@ const FurnitureGallery: React.FC = () => {
           </Fade>
         </ImageWrapper>
       ))}
+
+      {/* Modal with Swiper Slider */}
+      <FullScreenModal
+        open={isModalOpen}
+        footer={null}
+        centered
+        onCancel={closeModal}
+      >
+        <Swiper
+          key={currentSlideIndex}
+          initialSlide={currentSlideIndex}
+          navigation
+          pagination={{ clickable: true }}
+          modules={[Navigation, Pagination]}
+          onSlideChange={(swiper) => setCurrentSlideIndex(swiper.activeIndex)} // Update current index when sliding
+        >
+          {GalleryPics.map((image, index) => (
+            <SwiperSlide key={index}>
+              <Image
+                src={image}
+                alt={`Slide-${index}`}
+                height={1000}
+                width={1000}
+                className="rounded-lg"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </FullScreenModal>
     </FurnitureGalleryContainer>
   );
 };

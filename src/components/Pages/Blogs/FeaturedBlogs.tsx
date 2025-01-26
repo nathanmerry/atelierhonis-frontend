@@ -9,16 +9,17 @@ import { FeaturedBlogsWrapper } from "./styles";
 import { BlogItemDataType } from "./BlogItem";
 import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { useRouteRedirect } from "@/hooks/useRouteRedirect";
 
 type FeaturedBlogsType = {
-  data: BlogItemDataType[];
+  data: any[];
 };
 
 const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
   const { t } = useI18n();
 
   const [searchTerm, setSearchTerm] = useState<string>("");
-
+  const { redirect } = useRouteRedirect();
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
@@ -56,23 +57,26 @@ const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
           </h2>
         </Fade>
         {data.map((item, index) => {
-          const heading = item.heading.toLowerCase();
-          const date = new Date(item.createdAt ?? "").toLocaleDateString();
+          const heading = item.title.toLowerCase(); // Ensure it's lowercase for search
+          const date = new Date(item.updated_at ?? "").toLocaleDateString(); // Format the date
 
           const isVisible =
-            heading.includes(searchTerm) || date.includes(searchTerm);
+            heading.includes(searchTerm.toLowerCase()) ||
+            date.includes(searchTerm);
 
           return (
             <Fade direction="right" key={index}>
-              <Link
-                href={item.link}
+              <span
+                onClick={() => redirect(`/blog-detail/${item.id}`)}
                 className="feature_blog_item"
-                key={index}
-                style={{ display: isVisible ? "flex" : "none" }} // Toggle visibility
+                style={{
+                  display: isVisible ? "flex" : "none",
+                  cursor: "pointer",
+                }}
               >
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}${item.image}`}
-                  alt={item.heading}
+                  src={`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}${item.thumbnail}`}
+                  alt={item.title}
                   height={64}
                   width={64}
                   style={{
@@ -83,12 +87,12 @@ const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
                   }}
                 />
                 <div className="content">
-                  <h2 className="heading">{item.heading}</h2>
-                  <h3 className="date">
-                    {new Date(item.createdAt ?? "").toLocaleDateString()}
-                  </h3>
+                  <h2 className="heading">{item.title}</h2>{" "}
+                  {/* Display the title */}
+                  <h3 className="date">{date}</h3>{" "}
+                  {/* Display the formatted date */}
                 </div>
-              </Link>
+              </span>
             </Fade>
           );
         })}

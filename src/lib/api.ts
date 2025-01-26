@@ -7,31 +7,26 @@ interface FetchBlogsParams {
   pageSize: number;
 }
 
-export const fetchBlogs = async ({
-  page,
-  pageSize,
-  locale,
-}: FetchBlogsParams & { locale: string }) => {
+export const fetchBlogs = async (id?: string) => {
   try {
-    const response = await axios.get(
-      `${Backend_Base_Url}/api/furniture-sites?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}&locale=${locale}`,
-      {
-        headers: {
-          Authorization: `Bearer ${Api_Token}`,
-        },
-      }
-    );
-    console.log("Fetched blogs data:", response.data);
+    let url = `${Backend_Base_Url}/blogs`; // Default URL to fetch all blogs
 
-    // Ensure that the response data has the expected structure
-    const blogs = response.data;
+    if (id) {
+      url = `${Backend_Base_Url}/blogs/${id}`; // If `id` is passed, fetch a specific blog
+    }
 
-    // Optionally, check and return if any errors are present
-    if (!blogs || blogs.length === 0) {
+    // Send GET request to the appropriate URL
+    const response = await axios.get(url);
+
+    // Get the blogs or blog data from the response
+    const blogs = response.data.data; // Assuming the data is inside a 'data' field
+
+    // Check if there are blogs returned
+    if (!blogs || (Array.isArray(blogs) && blogs.length === 0)) {
       throw new Error("No blog data found");
     }
 
-    return blogs; // Return the full list of blogs
+    return blogs; // Return the blogs or a single blog
   } catch (error) {
     console.error("Error fetching blogs:", error);
     throw error;
@@ -57,15 +52,10 @@ export const fetchBlogDetailById = async (id: string, locale: string) => {
 
 export const fetchPrivacyPolicy = async (locale: string) => {
   try {
-    const response = await axios.get(
-      `${Backend_Base_Url}/api/privacy-policy?locale=${locale}`,
-      {
-        headers: {
-          Authorization: `Bearer ${Api_Token}`,
-        },
-      }
-    );
-    return response.data;
+    const response = await axios.get(`${Backend_Base_Url}/privacy-policy`, {
+      params: { lang: locale },
+    });
+    return response.data.data;
   } catch (error) {
     console.error("Error fetching privacy policy:", error);
     throw error;
@@ -74,15 +64,10 @@ export const fetchPrivacyPolicy = async (locale: string) => {
 
 export const fetchTermsAndConditions = async (locale: string) => {
   try {
-    const response = await axios.get(
-      `${Backend_Base_Url}/api/terms-and-condition?locale=${locale}`,
-      {
-        headers: {
-          Authorization: `Bearer ${Api_Token}`,
-        },
-      }
-    );
-    return response.data;
+    const response = await axios.get(`${Backend_Base_Url}/terms-conditions`, {
+      params: { lang: locale },
+    });
+    return response.data.data;
   } catch (error) {
     console.error("Error fetching terms and conditions:", error);
     throw error;

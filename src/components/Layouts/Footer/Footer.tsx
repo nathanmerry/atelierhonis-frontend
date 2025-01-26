@@ -56,6 +56,13 @@ const FooterContainer = styled.section`
 
         @media screen and (max-width: 425px) {
           max-width: 100%;
+
+          .logo_wrapper {
+            img {
+              height: 3rem;
+              width: fit-content;
+            }
+          }
         }
       }
 

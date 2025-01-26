@@ -269,6 +269,12 @@
     "supportIconAlt": "Sprijin",
     "supportTitle": "Sprijin",
     "supportDescription": "Resurse și instrumente pentru mobilier la Atelier Honis.",
-    "supportLink": "Centru de suport"
+    "supportLink": "Centru de suport",
+    "agree1": "Sunt de acord cu",
+    "agree2": "Termeni și Condiții,",
+    "agree3": "Politica de Confidențialitate,",
+    "agree4": "și Politica GDPR",
+    "successMsg": "Mulțumim pentru mesaj!",
+    "successDesc": "Vă mulțumim că ne-ați contactat! Unul dintre colegii noştri vă va răspunde în cel mai scurt timp, fie prin email, fie la numărul de telefon furnizat."
   }
 }
