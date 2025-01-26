@@ -7,7 +7,6 @@ import styled from "styled-components";
 import { PolicyWrapper, PrivacyPolicyWrapper } from "../privacy-policy";
 import { Fade } from "react-awesome-reveal";
 import { BlogDetailContainer } from "@/components/Pages/Blogs/styles";
-import { renderRichText } from "@/components/Pages/Blogs/BlogDetail";
 import { useI18n } from "@/hooks/useI18n";
 import SeoHead from "@/components/Layouts/SeoHead";
 import { useSearchParams } from "next/navigation";
