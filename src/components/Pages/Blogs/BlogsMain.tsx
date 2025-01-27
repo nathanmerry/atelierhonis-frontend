@@ -57,11 +57,8 @@ const BlogsMain: React.FC = () => {
         const featuredBlogs = filteredBlogs.filter(
           (blog: any) => blog.is_featured === 1
         );
-        const regularBlogs = filteredBlogs.filter(
-          (blog: any) => blog.is_featured === 0
-        );
 
-        setBlogs(regularBlogs);
+        setBlogs(filteredBlogs);
         setFeaturedBlogs(featuredBlogs);
 
         setPagination({
@@ -108,52 +105,56 @@ const BlogsMain: React.FC = () => {
         </ContactBtn>
       </Fade>
 
-      <BlogsMainContainer>
-        <Fade direction="left">
-          <h1 className="main_heading">
-            Ultimul <span>Post</span>
-          </h1>
-        </Fade>
+      {blogs.length > 0 && (
+        <BlogsMainContainer>
+          <Fade direction="left">
+            <h1 className="main_heading">
+              Ultimul <span>Post</span>
+            </h1>
+          </Fade>
 
-        <div className="blogs_grid">
-          <div className="blogs_list">
-            {blogs.map((item: any, index: number) => (
-              <BlogItem
-                image={item.thumbnail}
-                heading={item.title}
-                description={item.description}
-                link={`/blog-detail/${item.id}`}
-                tag={item.category}
-                key={index}
-              />
-            ))}
+          <div className="blogs_grid">
+            <div className="blogs_list">
+              {blogs.map((item: any, index: number) => (
+                <BlogItem
+                  image={item.thumbnail}
+                  heading={item.title}
+                  description={item.description}
+                  link={`/blog-detail/${item.id}`}
+                  tag={item.category}
+                  key={index}
+                />
+              ))}
+            </div>
+            <div className="featured_list">
+              <FeaturedBlogs data={featuredBlogs} />
+            </div>
           </div>
-          <div className="featured_list">
-            <FeaturedBlogs data={featuredBlogs} />
-          </div>
-        </div>
 
-        {/* Pagination Controls */}
-        <Fade direction="up">
-          <BlogsPagination>
-            <button
-              onClick={() => handlePageChange(pagination.page - 1)}
-              disabled={pagination.page <= 1}
-            >
-              Previous
-            </button>
-            <span>
-              Page {pagination.page} of {pagination.pageCount}
-            </span>
-            <button
-              onClick={() => handlePageChange(pagination.page + 1)}
-              disabled={pagination.page >= pagination.pageCount}
-            >
-              Next
-            </button>
-          </BlogsPagination>
-        </Fade>
-      </BlogsMainContainer>
+          {/* Pagination Controls */}
+          {pagination.pageCount > 1 && (
+            <Fade direction="up">
+              <BlogsPagination>
+                <button
+                  onClick={() => handlePageChange(pagination.page - 1)}
+                  disabled={pagination.page <= 1}
+                >
+                  Previous
+                </button>
+                <span>
+                  Page {pagination.page} of {pagination.pageCount}
+                </span>
+                <button
+                  onClick={() => handlePageChange(pagination.page + 1)}
+                  disabled={pagination.page >= pagination.pageCount}
+                >
+                  Next
+                </button>
+              </BlogsPagination>
+            </Fade>
+          )}
+        </BlogsMainContainer>
+      )}
     </ContainerMain>
   );
 };

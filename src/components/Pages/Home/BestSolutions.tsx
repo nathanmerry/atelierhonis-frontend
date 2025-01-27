@@ -93,7 +93,7 @@ const BestSolutionsWrapper = styled.div`
   }
 `;
 
-const MaximizeImageWrapper = styled.div`
+export const MaximizeImageWrapper = styled.div`
   position: relative;
 
   &::before {

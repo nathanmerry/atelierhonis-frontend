@@ -348,6 +348,13 @@ const BlogItemWrapper = styled.div`
       font-weight: 700;
       line-height: 123.821%;
       letter-spacing: -0.0425rem;
+
+      /* Add these for line clamping */
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* Number of lines to show */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .desc {
@@ -424,6 +431,11 @@ const BlogDetailPage = styled.div`
 
   .content_container {
     margin-top: 3rem;
+
+    ol,
+    ul {
+      padding-left: 1rem;
+    }
   }
 
   .heading {

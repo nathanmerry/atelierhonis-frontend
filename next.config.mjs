@@ -9,7 +9,7 @@ const nextConfig = {
     },
   },
   images: {
-    domains: ["localhost", "127.0.0.1"],
+    domains: ["localhost", "127.0.0.1","api.atelierhonis.ro"],
   },
   webpack(config) {
     config.module.rules.push({

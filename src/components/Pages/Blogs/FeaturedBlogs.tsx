@@ -64,6 +64,8 @@ const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
             heading.includes(searchTerm.toLowerCase()) ||
             date.includes(searchTerm);
 
+          const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${item.thumbnail}`;
+
           return (
             <Fade direction="right" key={index}>
               <span
@@ -75,7 +77,7 @@ const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
                 }}
               >
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}${item.thumbnail}`}
+                  src={imageUrl}
                   alt={item.title}
                   height={64}
                   width={64}

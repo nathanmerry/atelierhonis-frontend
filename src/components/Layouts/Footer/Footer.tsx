@@ -299,8 +299,18 @@ const Footer: React.FC<FooterPropsType> = () => {
           </Fade>
           <Fade direction="up">
             <div className="legal_actions">
-              <Link href="/terms-and-condition">{t("footer.legal.terms")}</Link>
-              <Link href="/privacy-policy">{t("footer.legal.privacy")}</Link>
+              <span
+                onClick={() => redirect("/terms-and-condition")}
+                style={{ cursor: "pointer" }}
+              >
+                {t("footer.legal.terms")}
+              </span>
+              <span
+                onClick={() => redirect("/privacy-policy")}
+                style={{ cursor: "pointer" }}
+              >
+                {t("footer.legal.privacy")}
+              </span>
             </div>
           </Fade>
         </div>

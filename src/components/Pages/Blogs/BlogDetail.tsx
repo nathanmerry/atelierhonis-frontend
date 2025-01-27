@@ -55,7 +55,9 @@ const BlogDetail = () => {
   if (loading) return null;
   if (!blog) return null;
 
-  const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${blog?.thumbnail}`;
+  const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${blog.thumbnail}`;
+
+  // const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${blog?.thumbnail}`;
   const Backend_Base_Url = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
 
   return (
@@ -70,7 +72,7 @@ const BlogDetail = () => {
 
       <BlogDetailPage>
         <FeaturedImage
-          src={`${Backend_Base_Url}/${imageUrl}`}
+          src={imageUrl}
           alt="BackgroundBanner"
           height={620}
           width={1440}
