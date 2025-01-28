@@ -155,7 +155,7 @@ const HeaderContainer = styled.div.withConfig({
   }
 `;
 
-const LanguagesSwitchWrapper = styled.div`
+export const LanguagesSwitchWrapper = styled.div`
   border-radius: 0.5rem;
   background: #000000;
   padding: 0.25rem;

@@ -14,6 +14,9 @@ import CustomFurnitureIcon from "/public/Images/Header/CustomFurnitureIcon.svg";
 import { ContainerMain } from "../../../../public/Styles/Layout/styles";
 import { useI18n } from "@/hooks/useI18n";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
+import { LanguagesSwitchWrapper } from "./Header";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { i18nConfig } from "../../../../i18n";
 
 // Define the type for the props that are not forwarded to the DOM
 interface HeaderMobileContainerProps {
@@ -180,6 +183,11 @@ const HeaderMobile: React.FC<HeaderMobilePropTypes> = () => {
         </span>
 
         <div className="controls">
+          <LanguagesSwitchWrapper>
+            {i18nConfig.locales.map((locale) => (
+              <LanguageSwitcher key={locale} locale={locale} />
+            ))}
+          </LanguagesSwitchWrapper>
           <Image
             src="/Images/Header/BarsSolid.svg"
             alt="BarsSolid"
