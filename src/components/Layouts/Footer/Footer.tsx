@@ -170,6 +170,20 @@ const FooterContainer = styled.section`
       line-height: 171.429%;
     }
   }
+
+  .contact_btn {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2.3125rem;
+    background: #ff6f00;
+    color: #fff;
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 122.176%;
+    text-transform: capitalize;
+  }
 `;
 
 export type FooterPropsType = {};
@@ -264,6 +278,16 @@ const Footer: React.FC<FooterPropsType> = () => {
                 </Link>
               </div>
             </Fade> */}
+
+            <Fade direction="right">
+              <span
+                onClick={() => redirect("/contact-us")}
+                className="contact_btn"
+                style={{ cursor: "pointer" }}
+              >
+                {t("FurnitureToOrder.contactBtn")}
+              </span>
+            </Fade>
 
             <Fade direction="right">
               <div className="social_links">
