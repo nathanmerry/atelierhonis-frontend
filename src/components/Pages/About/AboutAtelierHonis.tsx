@@ -35,7 +35,7 @@ const AboutAtelierHonis: React.FC = () => {
             </svg>
           )}
         </Button>
-        <Fade direction="left" style={{ width: "100%" }}>
+        <Fade triggerOnce={true} delay={40} direction="left" style={{ width: "100%" }}>
           <Image
             src="/Images/About/AboutHonisBanner.png"
             alt="About Honis Banner"
@@ -46,7 +46,7 @@ const AboutAtelierHonis: React.FC = () => {
         </Fade>
       </MaximizeImageWrapper>
 
-      <Fade direction="left">
+      <Fade triggerOnce={true} delay={40} direction="left">
         <div className="content">
           <h2 className="sub_heading">{t("AboutAtelierHonis.subHeading")}</h2>
           <h2 className="heading">
@@ -55,7 +55,7 @@ const AboutAtelierHonis: React.FC = () => {
           </h2>
           <p className="description">{t("AboutAtelierHonis.description")}</p>
 
-          <Fade direction="down">
+          <Fade triggerOnce={true} delay={40} direction="down">
             <ContactBtn
               onClick={() => redirect("/contact-us")}
               style={{ cursor: "pointer" }}

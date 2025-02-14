@@ -294,24 +294,24 @@ const FurnitureGallery: React.FC = () => {
   return (
     <FurnitureGalleryContainer>
       <div className="content" data-aos="flip-left">
-        <Fade direction="left">
+        <Fade triggerOnce={true} delay={40} direction="left">
           <h3 className="sub_heading">{t("galleryContent.tag")}</h3>
         </Fade>
 
-        <Fade direction="left">
+        <Fade triggerOnce={true} delay={40} direction="left">
           <h2 className="heading">
             {t("galleryContent.heading1")}{" "}
             <span>{t("galleryContent.heading2")}</span>
           </h2>
         </Fade>
-        <Fade direction="left">
+        <Fade triggerOnce={true} delay={40} direction="left">
           <p className="description">{t("galleryContent.description")}</p>
         </Fade>
       </div>
 
       {GalleryPics.map((image, index) => (
         <ImageWrapper key={index} className={`Image-${index}`}>
-          <Fade direction={index % 2 === 0 ? "left" : "right"} key={index}>
+          <Fade triggerOnce={true} delay={40} direction={index % 2 === 0 ? "left" : "right"} key={index}>
             <span>
               <Button
                 type="primary"

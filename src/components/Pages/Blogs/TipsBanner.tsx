@@ -18,12 +18,12 @@ const TipsBanner: React.FC = () => {
     <ContainerMain>
       <TipsBannerWrapper>
         <div className="content">
-          <Fade direction="left">
+          <Fade triggerOnce={true} delay={40} direction="left">
             <h2 className="heading">
               {t("TipsBanner.heading1")} <span>{t("TipsBanner.heading2")}</span>
             </h2>
           </Fade>
-          <Fade direction="left">
+          <Fade triggerOnce={true} delay={40} direction="left">
             <p className="description">{t("TipsBanner.desc")}</p>
           </Fade>
         </div>
@@ -47,7 +47,7 @@ const TipsBanner: React.FC = () => {
               </svg>
             )}
           </Button>
-          <Fade direction="left">
+          <Fade triggerOnce={true} delay={40} direction="left">
             <Image
               src="/Images/Blogs/kitchen-filled-with-kitchenware2.png"
               alt="kitchen-filled-with-kitchenware2"

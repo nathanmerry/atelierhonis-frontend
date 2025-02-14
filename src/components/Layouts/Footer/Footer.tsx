@@ -4,15 +4,19 @@ import { Form, Input } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-
-import Facebook from "/public/Images/Footer/Facebook.svg";
-import LinkedinIn from "/public/Images/Footer/LinkedinIn.svg";
-import Instagram from "/public/Images/Footer/Instagram.svg";
-import Twitter from "/public/Images/Footer/Twitter.svg";
 import { useI18n } from "@/hooks/useI18n";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
 import { ContainerMain } from "../../../../public/Styles/Layout/styles";
 import { Fade } from "react-awesome-reveal";
+import { useEffect } from "react";
+
+// Social Media Icons
+import Facebook from "/public/Images/Footer/Facebook.svg";
+import LinkedinIn from "/public/Images/Footer/LinkedinIn.svg";
+import Instagram from "/public/Images/Footer/Instagram.svg";
+import Twitter from "/public/Images/Footer/Twitter.svg";
+import Youtube from "/public/Images/Footer/Youtube.svg";
+
 
 const FooterContainer = styled.section`
   overflow: hidden;
@@ -184,22 +188,112 @@ const FooterContainer = styled.section`
     line-height: 122.176%;
     text-transform: capitalize;
   }
+
+  /* Floating Chat Buttons */
+  .chat_container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 999;
+
+    .chat_icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #25d366;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .tawk_button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
 `;
 
 export type FooterPropsType = {};
 
 const Footer: React.FC<FooterPropsType> = () => {
-  const { t } = useI18n();
-
+  const { t, lang } = useI18n(); // Get the current language
   const { redirect } = useRouteRedirect();
 
+
+  useEffect(() => {
+
+    if(window.Tawk_API==undefined){
+      // Load Tawk.to script dynamically
+      var Tawk_API = (window.Tawk_API = window.Tawk_API || {});
+      var Tawk_LoadStart = new Date();
+
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://embed.tawk.to/67af5f7aa5aed119107cc55b/1ik2grpok";
+      script.charset = "UTF-8";
+      script.setAttribute("crossorigin", "*");
+
+      script.onload = () => {
+        if (window.Tawk_API!=undefined) {
+        
+          // Set language in Tawk.to
+          window.Tawk_API.onLoad = function () {
+            window.Tawk_API.setAttributes(
+              { language: lang }, // Set user's language
+              function (error: any) {
+                if (error) console.error("Tawk.to language error:", error);
+              }
+            );
+          };
+        }
+      };
+
+      document.body.appendChild(script);
+    }
+  }, [lang]); // Run effect when language changes
+
+  
+
+  
   return (
     <FooterContainer>
       <ContainerMain className="footer_inner_container">
         <div>
           <div className="footer_top_items">
             <div className="logo_container">
-              <Fade direction="left">
+              <Fade triggerOnce={true} delay={40} direction="left">
                 <Link href="/" className="logo_wrapper">
                   <Image
                     src="/Images/Header/SiteLogo.png"
@@ -211,7 +305,7 @@ const Footer: React.FC<FooterPropsType> = () => {
                 </Link>
               </Fade>
 
-              <Fade direction="left">
+              <Fade triggerOnce={true} delay={40} direction="left">
                 <p className="description">{t("footer.description")}</p>
               </Fade>
 
@@ -233,41 +327,45 @@ const Footer: React.FC<FooterPropsType> = () => {
               </Link>
             </div>
 
-            <Fade direction="down">
+            <Fade triggerOnce={true} delay={40} direction="down">
               <div className="footer_links">
                 <h2 className="heading">{t("footer.quickLinks.heading")}</h2>
-                <span
+                <Link
+                  href={`/${lang}/`}
                   className="link"
                   onClick={() => redirect("/")}
                   style={{ cursor: "pointer" }}
                 >
                   {t("navbar.home")}
-                </span>
-                <span
+                </Link>
+                <Link
+                href={`/${lang}/about-us`}
                   className="link"
                   onClick={() => redirect("/about-us")}
                   style={{ cursor: "pointer" }}
                 >
                   {t("navbar.aboutUs")}
-                </span>
-                <span
+                </Link>
+                <Link
+                href={`/${lang}/blogs`}
                   className="link"
                   onClick={() => redirect("/blogs")}
                   style={{ cursor: "pointer" }}
                 >
                   {t("navbar.blogs")}
-                </span>
-                <span
+                </Link>
+                <Link
+                href={`/${lang}/custom-furniture`}
                   className="link"
                   onClick={() => redirect("/custom-furniture")}
                   style={{ cursor: "pointer" }}
                 >
                   {t("navbar.customFurniture")}
-                </span>
+                </Link>
               </div>
             </Fade>
 
-            {/* <Fade direction="down">
+            {/* <Fade triggerOnce={true} delay={40} direction="down">
               <div className="footer_links">
                 <h2 className="heading">{t("footer.testimonials.heading")}</h2>
                 <Link href="/support" className="link">
@@ -279,7 +377,7 @@ const Footer: React.FC<FooterPropsType> = () => {
               </div>
             </Fade> */}
 
-            <Fade direction="right">
+            <Fade triggerOnce={true} delay={40} direction="right">
               <span
                 onClick={() => redirect("/contact-us")}
                 className="contact_btn"
@@ -289,12 +387,16 @@ const Footer: React.FC<FooterPropsType> = () => {
               </span>
             </Fade>
 
-            <Fade direction="right">
+            <Fade triggerOnce={true} delay={40} direction="right">
               <div className="social_links">
                 <div className="social_links_icons">
+                <Link href="#" className="social_link">
+                    <Youtube style={{ width: "22px", fill: "#fff" }} />
+                  </Link>
                   <Link href="#" className="social_link">
                     <Facebook />
                   </Link>
+                  
                   <Link href="#" className="social_link">
                     <Instagram />
                   </Link>
@@ -318,27 +420,65 @@ const Footer: React.FC<FooterPropsType> = () => {
           </div>
         </div>
         <div className="copyright_container">
-          <Fade direction="up">
+          <Fade triggerOnce={true} delay={40} direction="up">
             <div className="copyright">{t("footer.copyright")}</div>
           </Fade>
-          <Fade direction="up">
+          <Fade triggerOnce={true} delay={40} direction="up">
             <div className="legal_actions">
-              <span
+              <Link
+              href={`/${lang}/terms-and-condition`}
                 onClick={() => redirect("/terms-and-condition")}
                 style={{ cursor: "pointer" }}
               >
                 {t("footer.legal.terms")}
-              </span>
-              <span
+              </Link>
+              <Link
+              href={`/${lang}/privacy-policy`}
                 onClick={() => redirect("/privacy-policy")}
                 style={{ cursor: "pointer" }}
               >
                 {t("footer.legal.privacy")}
-              </span>
+              </Link>
             </div>
           </Fade>
         </div>
       </ContainerMain>
+
+      {/* WhatsApp & Tawk Chat Floating Buttons */}
+      <div className="chat_container">
+        {/* WhatsApp Chat */}
+        <Link
+          href="https://wa.me/+91998873404"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="chat_icon"
+        >
+          <Image
+            src="/Images/Footer/whatsapp.svg"
+            alt="WhatsApp"
+            width={50}
+            height={50}
+          />
+        </Link>
+
+        {/* Tawk.to Chat */}
+        <div
+          className="tawk_button"
+          onClick={() => {
+            if (window.Tawk_API!=undefined) {
+              window.Tawk_API.toggle();
+
+            }
+          }}
+        >
+          <Image
+            src="/Images/Footer/TawkChat.svg"
+            alt="Tawk Chat"
+            width={50}
+            height={50}
+          />
+        </div>
+      </div>
     </FooterContainer>
   );
 };

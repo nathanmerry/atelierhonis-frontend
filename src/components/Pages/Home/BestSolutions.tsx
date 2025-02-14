@@ -205,18 +205,18 @@ const BestSolutions: React.FC = () => {
   return (
     <BestSolutionsWrapper>
       <div className="content">
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <h2 className="title">
             {t("bestSolutions.heading1")}{" "}
             <span>{t("bestSolutions.heading2")}</span>
           </h2>
         </Fade>
 
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <p className="description">{t("bestSolutions.description")}</p>
         </Fade>
 
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <span
             onClick={() => redirect("/contact-us")}
             className="contact_btn"
@@ -246,7 +246,7 @@ const BestSolutions: React.FC = () => {
             </svg>
           )}
         </Button>
-        <Fade direction="left">
+        <Fade triggerOnce={true} delay={40} direction="left">
           <Image
             src="/Images/Home/12StandardKitchenSizes.png"
             alt="12 Standard Kitchen Sizes"

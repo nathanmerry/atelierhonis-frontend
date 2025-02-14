@@ -9,18 +9,18 @@ const PrecisionCNC: React.FC = () => {
   return (
     <PrecisionCNCContainer>
       <div className="content_grid">
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <div className="heading">
             {t("PrecisionCNC.heading")}{" "}
             <span>{t("PrecisionCNC.heading2")}</span>
           </div>
         </Fade>
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <div className="content">{t("PrecisionCNC.description")}</div>
         </Fade>
       </div>
 
-      <Fade direction="down">
+      <Fade triggerOnce={true} delay={40} direction="down">
         <div className="grid_images_wrapper">
           <Image
             src="/Images/About/PrecisionImage1.png"

@@ -56,7 +56,7 @@ const FurnitureToOrder: React.FC = () => {
                 </svg>
               )}
             </Button>
-            <Fade direction="left">
+            <Fade triggerOnce={true} delay={40} direction="left">
               <Image
                 src="/Images/About/MobilierLaComanda.png"
                 alt="Mobilier la comanda"
@@ -68,7 +68,7 @@ const FurnitureToOrder: React.FC = () => {
           </MaximizeImageWrapper>
 
           <div className="content">
-            <Fade direction="right">
+            <Fade triggerOnce={true} delay={40} direction="right">
               <h2 className="heading">
                 {t("FurnitureToOrder.heading")}{" "}
                 <span>{t("FurnitureToOrder.heading2")}</span>
@@ -77,7 +77,7 @@ const FurnitureToOrder: React.FC = () => {
 
             <div className="list_items">
               {ItemsList.map((item, index) => (
-                <Fade direction="right" key={index}>
+                <Fade triggerOnce={true} delay={40} direction="right" key={index}>
                   <div className="list_item">
                     <Image
                       src={item.icon}
@@ -96,7 +96,7 @@ const FurnitureToOrder: React.FC = () => {
               ))}
             </div>
 
-            <Fade direction="right">
+            <Fade triggerOnce={true} delay={40} direction="right">
               <span
                 onClick={() => redirect("/contact-us")}
                 className="contact_btn"

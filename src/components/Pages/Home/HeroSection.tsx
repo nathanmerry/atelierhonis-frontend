@@ -31,13 +31,13 @@ const HeroSection: React.FC = () => {
 
         <div className="hero_section_content">
           <div className="inner_content_wrapper">
-            <Fade direction="down">
+            <Fade triggerOnce={true} delay={40} direction="down">
               <h1 className="heading">{t("hero.heading")}</h1>
             </Fade>
-            <Fade direction="down">
+            <Fade triggerOnce={true} delay={40} direction="down">
               <h1 className="paragraph">{t("hero.paragraph")}</h1>
             </Fade>
-            {/* <Fade direction="down">
+            {/* <Fade triggerOnce={true} delay={40} direction="down">
               <StylesSearchForm form={searchForm} onFinish={onSearch}>
                 <Form.Item
                   name="search"

@@ -3,7 +3,7 @@ import { Drawer } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import { usePathname } from "next/navigation";
 import styled from "styled-components";
 import TimesIcon from "/public/Images/Header/TimesIcon.svg";
 import HomeIcon from "/public/Images/Header/HomeIcon.svg";
@@ -150,23 +150,28 @@ const menuItems = [
 export type HeaderMobilePropTypes = {};
 
 const HeaderMobile: React.FC<HeaderMobilePropTypes> = () => {
+  const pathname = usePathname();
   const { t } = useI18n();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { redirect } = useRouteRedirect();
 
+
+  const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
       setDrawerOpen(false);
     };
 
+    console.log("pathname:", pathname.includes("blog-detail"));
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   return (
-    <HeaderMobileContainer isOpen={drawerOpen} isScrolled={isScrolled}>
+    <HeaderMobileContainer isOpen={drawerOpen} isScrolled={isScrolled} style={{
+      backgroundColor: pathname.includes("blog-detail") ? "#000000" : "",
+    }}>
       <ContainerMain className="top_header">
         <span
           style={{ cursor: "pointer" }}
@@ -221,7 +226,8 @@ const HeaderMobile: React.FC<HeaderMobilePropTypes> = () => {
           {menuItems.map((item, index) => (
             <div key={index} style={{ marginBottom: "10px" }}>
               {/* Render parent menu item */}
-              <span
+              <Link
+                href={item.href}
                 onClick={() => redirect(item.href)}
                 className="link_item"
                 style={{
@@ -230,7 +236,7 @@ const HeaderMobile: React.FC<HeaderMobilePropTypes> = () => {
                 }}
               >
                 {item.icon} {t(item.key)}
-              </span>
+              </Link>
 
               {/* Render submenu if children exist */}
               {item.children && (

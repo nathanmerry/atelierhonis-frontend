@@ -27,10 +27,10 @@ const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
   return (
     <FeaturedBlogsWrapper>
       <div className="search_wrapper">
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <h2 className="title">Căutare</h2>
         </Fade>
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <div className="input_wrapper">
             <Input
               className="search_input"
@@ -51,7 +51,7 @@ const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
       </div>
 
       <div className="featured_blogs_list">
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <h2 className="title">
             Postări <span>populare</span>
           </h2>
@@ -67,7 +67,7 @@ const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
           const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${item.thumbnail}`;
 
           return (
-            <Fade direction="right" key={index}>
+            <Fade triggerOnce={true} delay={40} direction="right" key={index}>
               <span
                 onClick={() => redirect(`/blog-detail/${item.id}`)}
                 className="feature_blog_item"

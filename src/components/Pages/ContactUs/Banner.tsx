@@ -90,13 +90,13 @@ const ContactUsBanner: React.FC = () => {
         />
 
         <div className="content">
-          <Fade direction="up">
+          <Fade triggerOnce={true} delay={40}   direction="up">
             <h2 className="heading" data-aos="fade-bottom">
               {t("contactUs.heading")}
             </h2>
           </Fade>
 
-          <Fade direction="up">
+          <Fade triggerOnce={true} delay={40}   direction="up">
             <p className="description" data-aos="fade-bottom">
               {t("contactUs.description")}
             </p>
@@ -109,7 +109,7 @@ const ContactUsBanner: React.FC = () => {
             requiredMark={true}
             initialValues={{ remember: true }}
           >
-            <Fade direction="up">
+            <Fade triggerOnce={true} delay={40}   direction="up">
               <Row gutter={[30, 30]}>
                 <Col xs={24} lg={12}>
                   <Form.Item
@@ -140,7 +140,7 @@ const ContactUsBanner: React.FC = () => {
               </Row>
             </Fade>
 
-            <Fade direction="up">
+            <Fade triggerOnce={true} delay={40}   direction="up">
               <Form.Item
                 label={t("contactUs.phoneLabel")}
                 name="contact_info"
@@ -150,7 +150,7 @@ const ContactUsBanner: React.FC = () => {
               </Form.Item>
             </Fade>
 
-            <Fade direction="up">
+            <Fade triggerOnce={true} delay={40}   direction="up">
               <Form.Item
                 label={t("contactUs.messageLabel")}
                 name="message"
@@ -189,7 +189,7 @@ const ContactUsBanner: React.FC = () => {
               </Checkbox>
             </Form.Item>
 
-            <Fade direction="up">
+            <Fade triggerOnce={true} delay={40}   direction="up">
               <Button type="primary" htmlType="submit" className="submit_btn">
                 {t("contactUs.submitButton")}{" "}
                 {isLoading && (
@@ -208,15 +208,15 @@ const ContactUsBanner: React.FC = () => {
 
       <ContainerMain>
         <ContactDetail>
-          <Fade direction="up">
+          <Fade triggerOnce={true} delay={40}   direction="up">
             <h2 className="heading">{t("contactUs.contactDetails")}</h2>
           </Fade>
 
-          <Fade direction="up">
+          <Fade triggerOnce={true} delay={40}   direction="up">
             <div className="desc">{t("contactUs.address")}</div>
           </Fade>
 
-          <Fade direction="up">
+          <Fade triggerOnce={true} delay={40}   direction="up">
             <div className="contact_items">
               <div className="contact_item">
                 <Image

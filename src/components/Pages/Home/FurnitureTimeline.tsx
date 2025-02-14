@@ -463,13 +463,13 @@ const FurnitureTimeline: React.FC = () => {
   return (
     <>
       <FurnitureTimelineHeading>
-        <Fade direction="left">
+        <Fade triggerOnce={true} delay={40} direction="left">
           <GradientHeading size="lg">
             {t("transactionTimeline.tagLine.heading1")}{" "}
             <span>{t("transactionTimeline.tagLine.heading2")}</span>
           </GradientHeading>
         </Fade>
-        {/* <Fade direction="down">
+        {/* <Fade triggerOnce={true} delay={40} direction="down">
           <BlackLink href="#">
             {t("transactionTimeline.tagLine.link")}
           </BlackLink>
@@ -498,7 +498,7 @@ const FurnitureTimeline: React.FC = () => {
                   </svg>
                 )}
               </Button>
-              <Fade direction="right">
+              <Fade triggerOnce={true} delay={40} direction="right">
                 <Image
                   src={timeline.image}
                   alt={t(timeline.heading1)}
@@ -508,7 +508,7 @@ const FurnitureTimeline: React.FC = () => {
               </Fade>
             </ImageWrapper>
             <div className="content_wrapper" data-aos="fade-left">
-              <Fade direction="left">
+              <Fade triggerOnce={true} delay={40} direction="left">
                 <div className="tag">
                   {index + 1}. {t(timeline.tag)}
                 </div>
@@ -521,7 +521,7 @@ const FurnitureTimeline: React.FC = () => {
         ))}
       </FurntureTimelineWrapperOuter>
 
-      <Fade direction="down">
+      <Fade triggerOnce={true} delay={40} direction="down">
         <ContactBtn
           onClick={() => redirect("/contact-us")}
           style={{ cursor: "pointer", margin: "auto" }}

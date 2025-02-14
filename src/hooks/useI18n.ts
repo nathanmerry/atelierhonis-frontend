@@ -14,7 +14,7 @@ interface IUseI18n {
  * @returns An object containing the translation function.
  */
 export const useI18n = ({ namespace }: IUseI18n = {}) => {
-  const { t } = useTranslation(namespace ? namespace : i18nConfig.defaultNS);
+  const { t, lang } = useTranslation(namespace ? namespace : i18nConfig.defaultNS);
 
-  return { t };
+  return { t, lang };
 };

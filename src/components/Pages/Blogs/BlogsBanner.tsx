@@ -19,10 +19,10 @@ const BlogsBanner: React.FC = () => {
       />
       <ContainerMain>
         <div className="content">
-          <Fade direction="left">
+          <Fade triggerOnce={true} delay={40} direction="left">
             <h2 className="sub_heading">{t("BlogBanner.subHeading")}</h2>
           </Fade>
-          <Fade direction="left">
+          <Fade triggerOnce={true} delay={40} direction="left">
             <p className="heading">{t("BlogBanner.heading")}</p>
           </Fade>
         </div>

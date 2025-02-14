@@ -19,12 +19,12 @@ const CustomFurnitureBanner: React.FC = () => {
       />
       <ContainerMain>
         <div className="content">
-          <Fade direction="right">
+          <Fade triggerOnce={true} delay={40} direction="right">
             <h2 className="sub_heading">
               {t("CustomFurnitureBanner.subHeading")}
             </h2>
           </Fade>
-          <Fade direction="right">
+          <Fade triggerOnce={true} delay={40} direction="right">
             <p className="heading" data-aos="fade-right" data-aos-delay="100">
               {t("CustomFurnitureBanner.heading")}
             </p>

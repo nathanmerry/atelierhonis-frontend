@@ -20,18 +20,18 @@ const CustomFurnitureTipsBanner: React.FC = () => {
     <ContainerMain>
       <CustomFurnitureTipsBannerWrapper>
         <div className="content">
-          <Fade direction="left">
+          <Fade triggerOnce={true} delay={40} direction="left">
             <h2 className="heading">
               {t("CustomFurnitureTipsBanner.heading1")}{" "}
               <span>{t("CustomFurnitureTipsBanner.heading2")}</span>
             </h2>
           </Fade>
-          <Fade direction="left">
+          <Fade triggerOnce={true} delay={40} direction="left">
             <p className="description">{t("CustomFurnitureTipsBanner.desc")}</p>
           </Fade>
         </div>
 
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <Image
             src="/Images/CustomFurniture/kitchen-filled-with-kitchenware2.png"
             alt="kitchen-filled-with-kitchenware2"

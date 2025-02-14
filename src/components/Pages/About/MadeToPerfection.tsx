@@ -9,7 +9,7 @@ const MadeToPerfection: React.FC = () => {
   return (
     <MadeToPerfectionContainer>
       <ContainerMain>
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <div className="inner_container">
             <h2 className="heading">{t("MadeToPerfection.heading")}</h2>
             <p className="description">{t("MadeToPerfection.description")}</p>

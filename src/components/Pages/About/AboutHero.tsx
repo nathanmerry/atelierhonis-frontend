@@ -24,15 +24,15 @@ const AboutHeroSection: React.FC = () => {
             className="inner_content_wrapper"
             style={{ maxWidth: "71.6495rem" }}
           >
-            <Fade direction="down">
+            <Fade triggerOnce={true} delay={40} direction="down">
               <h1 className="heading">{t("abouthero.heading")}</h1>
             </Fade>
 
-            <Fade direction="down">
+            <Fade triggerOnce={true} delay={40} direction="down">
               <h2 className="paragraph">{t("abouthero.description")}</h2>
             </Fade>
 
-            <Fade direction="down">
+            <Fade triggerOnce={true} delay={40} direction="down">
               <span
                 onClick={() => redirect("/contact-us")}
                 className="nav_link"

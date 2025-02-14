@@ -32,7 +32,7 @@ const BlogItem: React.FC<BlogItemDataType> = ({
   console.log("imageUrl:", imageUrl);
   return (
     <BlogItemWrapper>
-      <Fade direction="left">
+      <Fade triggerOnce={true} delay={40} direction="left">
         <div className="image_wrapper">
           <Image
             className="main_blog_image"
@@ -45,16 +45,16 @@ const BlogItem: React.FC<BlogItemDataType> = ({
       </Fade>
 
       <div className="content">
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <div className="tag">{tag}</div>
         </Fade>
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <h2 className="heading">{heading}</h2>
         </Fade>
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <p className="desc">{description}</p>
         </Fade>
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <span
             onClick={() => redirect(link)}
             className="link"

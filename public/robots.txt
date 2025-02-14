@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /private/
+
+# Allow crawling of everything else
+Allow: /
+
+# Sitemap URLs
+#Sitemap: https://atelierhonis.ro/sitemap.xml

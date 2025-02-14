@@ -96,7 +96,7 @@ const BlogsMain: React.FC = () => {
         twitterImage="/Images/About/AboutHonisBanner.png"
       />
 
-      <Fade direction="down">
+      <Fade triggerOnce={true} delay={40} direction="down">
         <ContactBtn
           onClick={() => redirect("/contact-us")}
           style={{ cursor: "pointer", margin: "auto" }}
@@ -107,7 +107,7 @@ const BlogsMain: React.FC = () => {
 
       {blogs.length > 0 && (
         <BlogsMainContainer>
-          <Fade direction="left">
+          <Fade triggerOnce={true} delay={40} direction="left">
             <h1 className="main_heading">
               Ultimul <span>Post</span>
             </h1>
@@ -133,7 +133,7 @@ const BlogsMain: React.FC = () => {
 
           {/* Pagination Controls */}
           {pagination.pageCount > 1 && (
-            <Fade direction="up">
+            <Fade triggerOnce={true} delay={40} direction="up">
               <BlogsPagination>
                 <button
                   onClick={() => handlePageChange(pagination.page - 1)}

@@ -244,7 +244,7 @@ const Header: React.FC<HeaderPropsType> = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const { t } = useI18n();
+  const { t,lang } = useI18n();
   const { redirect } = useRouteRedirect();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -266,7 +266,7 @@ const Header: React.FC<HeaderPropsType> = () => {
       }}
     >
       <ContainerMain className="inner_container">
-        <Fade direction="left">
+        <Fade triggerOnce={true} delay={40} direction="left">
           <span
             onClick={() => redirect("/")}
             className="logo_wrapper"
@@ -280,11 +280,12 @@ const Header: React.FC<HeaderPropsType> = () => {
             />
           </span>
         </Fade>
-        <Fade direction="down">
+        <Fade triggerOnce={true} delay={40} direction="down">
           <div className="menu_items">
             {menuItems.map((item, index) => (
               <div className="main_item" key={index}>
-                <span
+                <Link
+                  href={`/${lang}${item.href}`}
                   key={index}
                   onClick={item.href ? () => redirect(item.href) : undefined}
                   className={`link_item ${
@@ -293,7 +294,7 @@ const Header: React.FC<HeaderPropsType> = () => {
                   style={{ cursor: "pointer" }}
                 >
                   {t(item.key)}
-                </span>
+                </Link>
                 <span>
                   {item.children && (
                     <div className="child_menus_main">
@@ -302,6 +303,7 @@ const Header: React.FC<HeaderPropsType> = () => {
                           const isActive = router.asPath.includes(child.href);
                           return (
                             <span
+                             
                               className={`item_link ${
                                 isActive ? "active" : ""
                               }`}
@@ -325,7 +327,7 @@ const Header: React.FC<HeaderPropsType> = () => {
             ))}
           </div>
         </Fade>
-        <Fade direction="right">
+        <Fade triggerOnce={true} delay={40} direction="right">
           <div className="controls">
             <LanguagesSwitchWrapper>
               {i18nConfig.locales.map((locale) => (
@@ -333,13 +335,14 @@ const Header: React.FC<HeaderPropsType> = () => {
               ))}
             </LanguagesSwitchWrapper>
 
-            <span
+            <Link
+              href={`/${lang}/contact-us`}
               style={{ cursor: "pointer" }}
               onClick={() => redirect("/contact-us")}
               className="contact_us_btn"
             >
               {t("navbar.contactUs")}
-            </span>
+            </Link>
           </div>
         </Fade>
       </ContainerMain>

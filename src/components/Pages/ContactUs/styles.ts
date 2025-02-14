@@ -222,6 +222,7 @@ const ContactDetail = styled.div`
 
   @media screen and (max-width: 991px) {
     .contact_items {
+      margin: 0rem;
       flex-direction: column;
       align-items: center;
       .contact_item {

@@ -160,7 +160,7 @@ const FurnitureToOrderDetail: React.FC<FurnitureToOrderDetailType> = ({
           {...(item.sectionId && { id: item.sectionId })}
         >
           <ImageWrapper className={fullScreenIndex === index ? "maximize" : ""}>
-            <Fade direction={index % 2 == 0 ? "right" : "left"}>
+            <Fade triggerOnce={true} delay={40} direction={index % 2 == 0 ? "right" : "left"}>
               <span>
                 <Button
                   type="primary"
@@ -195,25 +195,25 @@ const FurnitureToOrderDetail: React.FC<FurnitureToOrderDetailType> = ({
           </ImageWrapper>
 
           <div className="content">
-            <Fade direction={index % 2 == 0 ? "left" : "right"}>
+            <Fade triggerOnce={true} delay={40} direction={index % 2 == 0 ? "left" : "right"}>
               <h2 className="heading">{t(item.heading)}</h2>
             </Fade>
-            <Fade direction={index % 2 == 0 ? "left" : "right"}>
+            <Fade triggerOnce={true} delay={40} direction={index % 2 == 0 ? "left" : "right"}>
               {item.subheading && (
                 <p className="sub_heading">{t(item.subheading)}</p>
               )}
             </Fade>
-            <Fade direction={index % 2 == 0 ? "left" : "right"}>
+            <Fade triggerOnce={true} delay={40} direction={index % 2 == 0 ? "left" : "right"}>
               <ul className="list_items">
                 {item.listitems.map((liitem, index) => (
                   <li key={index}>{t(liitem)}</li>
                 ))}
               </ul>
             </Fade>
-            <Fade direction={index % 2 == 0 ? "left" : "right"}>
+            <Fade triggerOnce={true} delay={40} direction={index % 2 == 0 ? "left" : "right"}>
               {item.extra && <h3 className="extra">{t(item.extra)}</h3>}
             </Fade>
-            <Fade direction={index % 2 == 0 ? "left" : "right"}>
+            <Fade triggerOnce={true} delay={40} direction={index % 2 == 0 ? "left" : "right"}>
               {item.link && (
                 <span
                   onClick={() => redirect("/contact-us")}
