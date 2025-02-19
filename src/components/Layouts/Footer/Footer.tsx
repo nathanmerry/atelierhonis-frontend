@@ -147,6 +147,7 @@ const FooterContainer = styled.section`
     padding: 2.5rem 0;
     display: flex;
     align-items: center;
+    margin-bottom:50px;
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
@@ -261,7 +262,7 @@ const Footer: React.FC<FooterPropsType> = () => {
 
       const script = document.createElement("script");
       script.async = true;
-      script.src = "https://embed.tawk.to/67af5f7aa5aed119107cc55b/1ik2grpok";
+      script.src = "https://embed.tawk.to/67af73c2812ce4190cb87e74/1ik2lobtc";
       script.charset = "UTF-8";
       script.setAttribute("crossorigin", "*");
 
@@ -378,29 +379,29 @@ const Footer: React.FC<FooterPropsType> = () => {
             </Fade> */}
 
             <Fade triggerOnce={true} delay={40} direction="right">
-              <span
+              <Link  href={`/${lang}/contact-us`}
                 onClick={() => redirect("/contact-us")}
                 className="contact_btn"
                 style={{ cursor: "pointer" }}
               >
                 {t("FurnitureToOrder.contactBtn")}
-              </span>
+              </Link>
             </Fade>
 
             <Fade triggerOnce={true} delay={40} direction="right">
               <div className="social_links">
                 <div className="social_links_icons">
-                <Link href="#" className="social_link">
+                <Link href="https://www.youtube.com/@AtelierHonis" className="social_link">
                     <Youtube style={{ width: "22px", fill: "#fff" }} />
                   </Link>
-                  <Link href="#" className="social_link">
+                  <Link  href="https://www.facebook.com/people/Atelier-Honis/61572846273422/"  target="_blank" className="social_link">
                     <Facebook />
                   </Link>
                   
-                  <Link href="#" className="social_link">
+                  <Link href="https://www.instagram.com/atelierhonis/" target="_blank" className="social_link">
                     <Instagram />
                   </Link>
-                  <Link href="#" className="social_link">
+                  <Link href="https://www.tiktok.com/@atelierhonis" target="_blank" className="social_link">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -448,7 +449,7 @@ const Footer: React.FC<FooterPropsType> = () => {
       <div className="chat_container">
         {/* WhatsApp Chat */}
         <Link
-          href="https://wa.me/+91998873404"
+          href="https://wa.me/+40766313595"
           target="_blank"
           rel="noopener noreferrer"
           className="chat_icon"

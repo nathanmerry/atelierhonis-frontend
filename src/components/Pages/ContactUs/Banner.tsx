@@ -22,10 +22,11 @@ import { useState } from "react";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
 
 const ContactUsBanner: React.FC = () => {
-  const { t } = useI18n();
+  const { t,lang } = useI18n();
   const [contactForm] = Form.useForm();
   const [isLoading, setIsLoading] = useState(false);
   const { redirect } = useRouteRedirect();
+
 
   const handleSubmit = async (values: any) => {
     console.log("Form Values:", values);
@@ -38,6 +39,7 @@ const ContactUsBanner: React.FC = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept-Language":lang
         },
         body: JSON.stringify({
           name: values.name,
