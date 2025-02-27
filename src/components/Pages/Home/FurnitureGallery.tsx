@@ -3,7 +3,7 @@
 import { useI18n } from "@/hooks/useI18n";
 import { Button, Modal } from "antd";
 import Image from "next/image";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 
@@ -276,20 +276,55 @@ const FullScreenModal = styled(Modal)`
 const FurnitureGallery: React.FC = () => {
   const { t } = useI18n();
 
-  // State to track the index of the fullscreen item
-  const [fullScreenIndex, setFullScreenIndex] = useState<number | null>(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
+  // Unique identifier for hash tracking
+  const imageId = "FurnitureGallery";
+
   const openModal = (index: number) => {
     setCurrentSlideIndex(index);
     setIsModalOpen(true);
+    window.location.hash = `#${imageId}${index}`; // Add hash
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    window.history.replaceState(null, "", window.location.pathname);
   };
+
+    
+  
+    // Function to handle outside click and remove maximize
+    useEffect(() => {
+
+  
+      const handleHashChange = () => {
+        const imageIdHash = window.location.hash;
+        
+        const extractedId = parseInt(imageIdHash.replace(/\D/g, ""), 10);
+        if(imageIdHash=="#FurnitureGallery"+extractedId){
+          
+          setCurrentSlideIndex(isNaN(extractedId) ? 0 : extractedId);
+          setIsModalOpen(isNaN(extractedId) ? false : true);
+        }else{
+          setIsModalOpen(false);
+        }
+      };
+  
+      // Add event listeners
+      window.addEventListener("popstate", handleHashChange);
+      window.addEventListener("hashchange", handleHashChange);
+  
+      return () => {
+        // Cleanup event listeners
+        window.removeEventListener("popstate", handleHashChange);
+        window.removeEventListener("hashchange", handleHashChange);
+      };
+    }, []);
+
+  
 
   return (
     <FurnitureGalleryContainer>
@@ -319,7 +354,7 @@ const FurnitureGallery: React.FC = () => {
                 className="control_btn"
                 onClick={() => openModal(index)}
               >
-                {fullScreenIndex === index ? (
+                {currentSlideIndex === index ? (
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-83.6 290.5c4.8 4.8 4.8 12.6 0 17.4l-40.5 40.5c-4.8 4.8-12.6 4.8-17.4 0L256 313.3l-66.5 67.1c-4.8 4.8-12.6 4.8-17.4 0l-40.5-40.5c-4.8-4.8-4.8-12.6 0-17.4l67.1-66.5-67.1-66.5c-4.8-4.8-4.8-12.6 0-17.4l40.5-40.5c4.8-4.8 12.6-4.8 17.4 0l66.5 67.1 66.5-67.1c4.8-4.8 12.6-4.8 17.4 0l40.5 40.5c4.8 4.8 4.8 12.6 0 17.4L313.3 256l67.1 66.5z" />
                   </svg>

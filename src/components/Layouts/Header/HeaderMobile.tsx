@@ -151,7 +151,7 @@ export type HeaderMobilePropTypes = {};
 
 const HeaderMobile: React.FC<HeaderMobilePropTypes> = () => {
   const pathname = usePathname();
-  const { t } = useI18n();
+  const { t ,lang} = useI18n();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { redirect } = useRouteRedirect();
 
@@ -227,7 +227,7 @@ const HeaderMobile: React.FC<HeaderMobilePropTypes> = () => {
             <div key={index} style={{ marginBottom: "10px" }}>
               {/* Render parent menu item */}
               <Link
-                href={item.href}
+                href={`/${lang}${item.href}`}
                 onClick={() => redirect(item.href)}
                 className="link_item"
                 style={{

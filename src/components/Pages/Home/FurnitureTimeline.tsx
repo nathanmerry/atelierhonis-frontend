@@ -3,7 +3,7 @@ import { useRouteRedirect } from "@/hooks/useRouteRedirect";
 import { Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Fade } from "react-awesome-reveal";
 
 import styled from "styled-components";
@@ -455,10 +455,57 @@ const FurnitureTimeline: React.FC = () => {
   const [fullScreenIndex, setFullScreenIndex] = useState<number | null>(null);
   const { redirect } = useRouteRedirect();
 
+  // Unique identifier for hash tracking
+  const imageId = "FurntureTimeline";
+
+  // Function to handle outside click and remove maximize
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const maximizeElement = document.querySelector(".maximize");
+
+      // Ensure element exists and click is NOT on an <img> or button inside it
+      if (maximizeElement && !(event.target as HTMLElement).closest("img") && !(event.target as HTMLElement).closest("button")) {
+        console.log("Closing fullscreen mode");
+        setFullScreenIndex(null);
+        window.history.pushState("", document.title, window.location.pathname); // Remove hash
+      }
+    };
+
+    const handleHashChange = () => {
+      const imageIdHash = window.location.hash;
+      const extractedId = parseInt(imageIdHash.replace(/\D/g, ""), 10);
+
+      if(imageIdHash=="#FurntureTimeline"+extractedId){
+        setFullScreenIndex(isNaN(extractedId) ? null : extractedId);
+      }else{
+        setFullScreenIndex(null);
+      }
+    };
+
+    // Add event listeners
+    document.addEventListener("click", handleClickOutside);
+    window.addEventListener("popstate", handleHashChange);
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      // Cleanup event listeners
+      document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("popstate", handleHashChange);
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
+  // Function to toggle full screen mode
   const handleToggleFullScreen = (index: number) => {
-    // If the current index is already fullscreen, reset it; otherwise, set it
-    setFullScreenIndex(fullScreenIndex === index ? null : index);
+    if (fullScreenIndex === index) {
+      window.history.pushState("", document.title, window.location.pathname); // Remove hash
+      setFullScreenIndex(null);
+    } else {
+      window.location.hash = `#${imageId}${index}`; // Add hash
+      setFullScreenIndex(index);
+    }
   };
+
 
   return (
     <>

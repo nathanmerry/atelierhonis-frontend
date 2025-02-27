@@ -5,7 +5,7 @@ import { FurnitureToOrderDetailContainer } from "./styles";
 import Link from "next/link";
 import { Fade } from "react-awesome-reveal";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Button } from "antd";
 
 const ImageWrapper = styled.div`
@@ -146,9 +146,55 @@ const FurnitureToOrderDetail: React.FC<FurnitureToOrderDetailType> = ({
   // State to track the index of the fullscreen item
   const [fullScreenIndex, setFullScreenIndex] = useState<number | null>(null);
 
+  // Unique identifier for hash tracking
+  const imageId = "FurnitureToOrderDetailItem";
+
+  // Function to handle outside click and remove maximize
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const maximizeElement = document.querySelector(".maximize");
+
+      // Ensure element exists and click is NOT on an <img> or button inside it
+      if (maximizeElement && !(event.target as HTMLElement).closest("img") && !(event.target as HTMLElement).closest("button")) {
+        console.log("Closing fullscreen mode");
+        setFullScreenIndex(null);
+        window.history.pushState("", document.title, window.location.pathname); // Remove hash
+      }
+    };
+
+    const handleHashChange = () => {
+      const imageIdHash = window.location.hash;
+      const extractedId = parseInt(imageIdHash.replace(/\D/g, ""), 10);
+      if(imageIdHash=="#"+imageId+extractedId){
+      setFullScreenIndex(isNaN(extractedId) ? null : extractedId);
+      }
+      else{
+        setFullScreenIndex(null);
+      }
+    };
+
+    // Add event listeners
+    document.addEventListener("click", handleClickOutside);
+    window.addEventListener("popstate", handleHashChange);
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      // Cleanup event listeners
+      document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("popstate", handleHashChange);
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
+  // Function to toggle full screen mode
   const handleToggleFullScreen = (index: number) => {
-    // If the current index is already fullscreen, reset it; otherwise, set it
-    setFullScreenIndex(fullScreenIndex === index ? null : index);
+    if (fullScreenIndex === index) {
+      window.history.pushState("", document.title, window.location.pathname); // Remove hash
+      setFullScreenIndex(null);
+    } else {
+      window.location.hash = `#${imageId}${index}`; // Add hash
+      setFullScreenIndex(index);
+    }
   };
 
   return (
@@ -159,10 +205,9 @@ const FurnitureToOrderDetail: React.FC<FurnitureToOrderDetailType> = ({
           key={index}
           {...(item.sectionId && { id: item.sectionId })}
         >
-          <ImageWrapper className={fullScreenIndex === index ? "maximize" : ""}>
-            <Fade triggerOnce={true} delay={40} direction={index % 2 == 0 ? "right" : "left"}>
-              <span>
-                <Button
+          <ImageWrapper className={fullScreenIndex === index ? "maximize image-popup" : "image-popup"}>
+
+          <Button
                   type="primary"
                   htmlType="button"
                   className="control_btn"
@@ -184,6 +229,9 @@ const FurnitureToOrderDetail: React.FC<FurnitureToOrderDetailType> = ({
                     </svg>
                   )}
                 </Button>
+            <Fade triggerOnce={true} delay={40} direction={index % 2 == 0 ? "right" : "left"}>
+              <span>
+
                 <Image
                   src={item.image}
                   alt={item.heading}

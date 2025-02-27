@@ -17,6 +17,7 @@ import { languageDetector } from "@/lib/languageDetector";
 import { usePathname } from "next/navigation";
 import { ContactBtn } from "../Home/FurnitureTimeline";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
+import Link from "next/link";
 
 interface Pagination {
   page: number;
@@ -26,7 +27,7 @@ interface Pagination {
 }
 
 const BlogsMain: React.FC = () => {
-  const { t } = useI18n();
+  const { t,lang } = useI18n();
   const pathname = usePathname();
   const { redirect } = useRouteRedirect();
   const detectedLng = languageDetector.detect();
@@ -96,13 +97,20 @@ const BlogsMain: React.FC = () => {
         twitterImage="/Images/About/AboutHonisBanner.png"
       />
 
-      <Fade triggerOnce={true} delay={40} direction="down">
-        <ContactBtn
+      <Fade triggerOnce={true} delay={40} direction="down" >
+        
+      
+      <ContactBtn style={{ cursor: "pointer", margin: "auto" }} onClick={() => redirect("/contact-us")}>
+      <Link
           onClick={() => redirect("/contact-us")}
-          style={{ cursor: "pointer", margin: "auto" }}
-        >
+          style={{ cursor: "pointer", margin: "auto", display:"inline-block" }}
+          href={`/${lang}/contact-us`}
+          className="link_item link"
+          >
           {t("FurnitureToOrder.contactBtn")}
+          </Link>
         </ContactBtn>
+        
       </Fade>
 
       {blogs.length > 0 && (

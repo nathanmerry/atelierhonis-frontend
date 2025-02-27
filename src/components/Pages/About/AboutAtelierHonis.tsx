@@ -7,12 +7,55 @@ import { ContactBtn } from "../Home/FurnitureTimeline";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
 import { MaximizeImageWrapper } from "../Home/BestSolutions";
 import { Button } from "antd";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
-const AboutAtelierHonis: React.FC = () => {
+
+ const AboutAtelierHonis: React.FC = () => {
   const { t } = useI18n();
   const { redirect } = useRouteRedirect();
- const [isFullScreen, setIsFullScreen] = useState(false);
+
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const imageId = "aboutatelierhonis";
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setIsFullScreen(window.location.hash === `#${imageId}`);
+    };
+
+    const handleClickOutside = (e: MouseEvent) => {
+      
+      const target = e.target as HTMLElement;
+      console.log(target.closest("img"));
+      if (!target.closest("img") && !target.closest("button")) {
+        setIsFullScreen(false);
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    };
+
+    
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(prev => {
+      const newState = !prev;
+      if (newState) {
+        window.location.hash = `#${imageId}`;
+      } else {
+        window.history.pushState("", document.title, window.location.pathname);
+      }
+      return !prev;
+    });
+  };
+ 
 
   return (
     <AboutAtelierHonisContainer>
@@ -23,7 +66,7 @@ const AboutAtelierHonis: React.FC = () => {
           type="primary"
           htmlType="button"
           className="control_btn"
-          onClick={() => setIsFullScreen(!isFullScreen)}
+          onClick={() => toggleFullScreen()}
         >
           {isFullScreen ? (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -35,7 +78,7 @@ const AboutAtelierHonis: React.FC = () => {
             </svg>
           )}
         </Button>
-        <Fade triggerOnce={true} delay={40} direction="left" style={{ width: "100%" }}>
+        <Fade triggerOnce={true} delay={40} direction="left">
           <Image
             src="/Images/About/AboutHonisBanner.png"
             alt="About Honis Banner"

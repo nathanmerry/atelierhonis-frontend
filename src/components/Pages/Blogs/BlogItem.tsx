@@ -10,6 +10,7 @@ import { BlogItemWrapper } from "./styles";
 import { Fade } from "react-awesome-reveal";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
 
+
 export type BlogItemDataType = {
   image: string;
   tag: string;
@@ -27,6 +28,7 @@ const BlogItem: React.FC<BlogItemDataType> = ({
   tag,
 }) => {
   const { redirect } = useRouteRedirect();
+  const { t,lang } = useI18n();
 
   const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${image}`;
   console.log("imageUrl:", imageUrl);
@@ -34,6 +36,14 @@ const BlogItem: React.FC<BlogItemDataType> = ({
     <BlogItemWrapper>
       <Fade triggerOnce={true} delay={40} direction="left">
         <div className="image_wrapper">
+        <Link 
+          onClick={(e) => {redirect(link); // Use Next.js navigation for fast transitions
+          }}
+          href={`/${lang}${link}`}
+          className="link_item link"
+          style={{
+            cursor: "pointer"
+          }}>
           <Image
             className="main_blog_image"
             src={imageUrl}
@@ -41,6 +51,7 @@ const BlogItem: React.FC<BlogItemDataType> = ({
             height={520}
             width={1020}
           />
+          </Link>
         </div>
       </Fade>
 
@@ -49,19 +60,29 @@ const BlogItem: React.FC<BlogItemDataType> = ({
           <div className="tag">{tag}</div>
         </Fade>
         <Fade triggerOnce={true} delay={40} direction="right">
-          <h2 className="heading">{heading}</h2>
+        <Link 
+          onClick={(e) => {redirect(link); // Use Next.js navigation for fast transitions
+          }}
+          href={`/${lang}${link}`}
+          className="link_item link"
+          style={{
+            cursor: "pointer"
+          }}><h2 className="heading">{heading}</h2></Link>
         </Fade>
         <Fade triggerOnce={true} delay={40} direction="right">
           <p className="desc">{description}</p>
         </Fade>
         <Fade triggerOnce={true} delay={40} direction="right">
-          <span
-            onClick={() => redirect(link)}
-            className="link"
-            style={{ cursor: "pointer" }}
-          >
+          <Link 
+          onClick={(e) => {redirect(link); // Use Next.js navigation for fast transitions
+          }}
+          href={`/${lang}${link}`}
+          className="link_item link"
+          style={{
+            cursor: "pointer"
+          }}>
             Citeşte mai mult
-          </span>
+          </Link>
         </Fade>
       </div>
     </BlogItemWrapper>
