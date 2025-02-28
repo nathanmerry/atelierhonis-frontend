@@ -255,9 +255,9 @@ const Footer: React.FC<FooterPropsType> = () => {
 
   useEffect(() => {
 
-    if(window.Tawk_API==undefined){
+    if((window as any).Tawk_API==undefined){
       // Load Tawk.to script dynamically
-      var Tawk_API = (window.Tawk_API = window.Tawk_API || {});
+      var Tawk_API = ((window as any).Tawk_API = (window as any).Tawk_API || {});
       var Tawk_LoadStart = new Date();
 
       const script = document.createElement("script");
@@ -267,11 +267,11 @@ const Footer: React.FC<FooterPropsType> = () => {
       script.setAttribute("crossorigin", "*");
 
       script.onload = () => {
-        if (window.Tawk_API!=undefined) {
+        if ((window as any).Tawk_API!=undefined) {
         
           // Set language in Tawk.to
-          window.Tawk_API.onLoad = function () {
-            window.Tawk_API.setAttributes(
+          (window as any).Tawk_API.onLoad = function () {
+            (window as any).Tawk_API.setAttributes(
               { language: lang }, // Set user's language
               function (error: any) {
                 if (error) console.error("Tawk.to language error:", error);
@@ -466,8 +466,8 @@ const Footer: React.FC<FooterPropsType> = () => {
         <div
           className="tawk_button"
           onClick={() => {
-            if (window.Tawk_API!=undefined) {
-              window.Tawk_API.toggle();
+            if ((window as any).Tawk_API!=undefined) {
+              (window as any).Tawk_API.toggle();
 
             }
           }}
