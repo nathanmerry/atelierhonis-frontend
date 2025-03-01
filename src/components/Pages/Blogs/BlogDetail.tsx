@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { ContainerMain } from "../../../../public/Styles/Layout/styles";
-
-import { BlogDetailContainer, BlogDetailPage, FeaturedImage } from "./styles";
 import styled from "styled-components";
-import { fetchBlogDetailById, fetchBlogs } from "@/lib/api";
-import SeoHead from "@/components/Layouts/SeoHead";
-import { languageDetector } from "@/lib/languageDetector";
-import locale from "antd/es/date-picker/locale/en_US";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Fade } from "react-awesome-reveal";
 import Image from "next/image";
+import SeoHead from "@/components/Layouts/SeoHead";
+import { fetchBlogs } from "@/lib/api";
+import { useI18n } from "@/hooks/useI18n";
+import { useRouteRedirect } from "@/hooks/useRouteRedirect";
+import { BlogDetailContainer, BlogDetailPage, FeaturedImage } from "./styles";
 
 interface Blog {
   id: number;
@@ -25,20 +24,46 @@ interface Blog {
   updated_at: string;
 }
 
+// Styled Back Button
+const BackButton = styled(Link)`
+  display: block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2.3125rem;
+  background: #ff6f00;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 122.176%;
+  text-transform: capitalize;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 1.5rem;
+
+  &:hover {
+    background: #e65c00; /* Slightly darker on hover */
+  }
+`;
+
 const BlogDetail = () => {
   const router = useRouter();
   const { id } = router.query; // Extracts the `id` from the URL
-
-  const [blog, setBlog] = useState<Blog | null>(null); // Typing the state
-  const [loading, setLoading] = useState<boolean>(true); // Typing the loading state
+  const [blog, setBlog] = useState<Blog | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const { t, lang } = useI18n();
+  const { redirect } = useRouteRedirect();
 
   useEffect(() => {
     if (id) {
-      const blogId = Array.isArray(id) ? id[0] : id; // Get the id value
+      const blogId = Array.isArray(id) ? id[0] : id;
 
       const getBlogDetail = async () => {
         try {
-          const blogData = await fetchBlogs(blogId); // Fetch the blog data by id
+          const blogData = await fetchBlogs(blogId);
           console.log("BlogDetail:", blogData);
           setBlog(blogData);
         } catch (error) {
@@ -50,14 +75,12 @@ const BlogDetail = () => {
 
       getBlogDetail();
     }
-  }, [id]); // Re-fetch if `id` changes
+  }, [id]);
 
   if (loading) return null;
   if (!blog) return null;
 
   const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${blog.thumbnail}`;
-
-  // const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${blog?.thumbnail}`;
   const Backend_Base_Url = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
 
   return (
@@ -82,8 +105,22 @@ const BlogDetail = () => {
         <p className="category">{blog.category}</p>
         <div
           className="content_container"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          dangerouslySetInnerHTML={{
+            __html: blog.content.replace(
+              /<p[^>]*data-f-id="pbf"[^>]*>.*?<a href="https:\/\/www\.froala\.com\/wysiwyg-editor\?pb=1"[^>]*>Froala Editor<\/a><\/p>/gi,
+              ""
+            ),
+          }}
         />
+
+
+        {/* Back Button */}
+        <br/>
+        <Fade triggerOnce={true} delay={40} direction="right">
+          <BackButton href={`/${lang}/blogs`} onClick={() => redirect("/blogs")}>
+            {t("BlogBanner.back")}
+          </BackButton>
+        </Fade>
       </BlogDetailPage>
     </BlogDetailContainer>
   );

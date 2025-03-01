@@ -177,7 +177,8 @@
 
   "BlogBanner": {
     "subHeading": "Blogs",
-    "heading": "Transform Your Kitchen into a Modern Masterpiece"
+    "heading": "Transform Your Kitchen into a Modern Masterpiece",
+    "back":"Go Back"
   },
 
   "TipsBanner": {

@@ -246,9 +246,10 @@ const FullScreenModal = styled(Modal)`
       height: calc(100vh - 2.5rem);
       .swiper-wrapper {
         .swiper-slide {
+          text-align:center;
           img {
             height: 100%;
-            width: 100%;
+            width: auto;
             object-fit: contain;
           }
         }
@@ -299,6 +300,14 @@ const FurnitureGallery: React.FC = () => {
     // Function to handle outside click and remove maximize
     useEffect(() => {
 
+      const handleClickOutside = (event: MouseEvent) => {
+  
+        // Ensure element exists and click is NOT on an <img> or button inside it
+        if (!(event.target as HTMLElement).closest(".swiper-button-next")  && !(event.target as HTMLElement).closest("img") && !(event.target as HTMLElement).closest("button")) {
+          setIsModalOpen(false);
+          window.history.pushState("", document.title, window.location.pathname); // Remove hash
+        }
+      };
   
       const handleHashChange = () => {
         const imageIdHash = window.location.hash;
@@ -314,11 +323,13 @@ const FurnitureGallery: React.FC = () => {
       };
   
       // Add event listeners
+      window.addEventListener("click", handleClickOutside);
       window.addEventListener("popstate", handleHashChange);
       window.addEventListener("hashchange", handleHashChange);
   
       return () => {
         // Cleanup event listeners
+        window.removeEventListener("click", handleClickOutside);
         window.removeEventListener("popstate", handleHashChange);
         window.removeEventListener("hashchange", handleHashChange);
       };
