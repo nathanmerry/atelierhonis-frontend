@@ -63,7 +63,7 @@ const FooterContainer = styled.section`
 
           .logo_wrapper {
             img {
-              height: 3rem;
+              height: 2.5rem;
               width: fit-content;
             }
           }

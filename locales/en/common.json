@@ -178,7 +178,16 @@
   "BlogBanner": {
     "subHeading": "Blogs",
     "heading": "Transform Your Kitchen into a Modern Masterpiece",
-    "back":"Go Back"
+    "back":"Go Back",
+    "Search":"Search",
+    "SearchPlaceholder":"Enter keywords",
+    "popularPosts":"Popular Post",
+    "readmore":"Read more",
+    "bptitle":"Latest",
+    "Previous":"Previous",
+    "Next":"Next",
+    "Page":"Page"
+                  
   },
 
   "TipsBanner": {

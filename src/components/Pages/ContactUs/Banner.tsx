@@ -18,8 +18,39 @@ import { useI18n } from "@/hooks/useI18n";
 import SeoHead from "@/components/Layouts/SeoHead";
 import { Fade } from "react-awesome-reveal";
 import { LoadingOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
+
+
+export function ObfuscatedEmail() {
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    const user = 'contact';
+    const domain = 'atelierhonis.ro';
+    setEmail(`${user}@${domain}`);
+  }, []);
+
+  return (
+
+    <Link
+    href={`mailto:${email}`}
+    className="link"
+    onContextMenu={(e) => {
+      e.preventDefault();
+      alert('Right-click is disabled.');
+    }}
+    
+    onCopy={(e) => {
+      e.preventDefault();
+      alert('Copying is disabled.');
+    }}
+    style={{ userSelect: 'none', pointerEvents: 'auto' }}
+  >
+    {email}
+  </Link>
+  );
+}
 
 const ContactUsBanner: React.FC = () => {
   const { t,lang } = useI18n();
@@ -229,9 +260,8 @@ const ContactUsBanner: React.FC = () => {
                 />
                 <h2 className="title">{t("contactUs.emailTitle")}</h2>
                 <p className="description">{t("contactUs.emailDescription")}</p>
-                <Link href="mailto:contact@atelierhonis.ro" className="link">
-                  contact@atelierhonis.ro
-                </Link>
+                
+                <ObfuscatedEmail></ObfuscatedEmail>
               </div>
               <div className="contact_item">
                 <Image

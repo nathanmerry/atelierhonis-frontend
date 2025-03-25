@@ -7,16 +7,93 @@ interface FetchBlogsParams {
   pageSize: number;
 }
 
-export const fetchBlogs = async (id?: string) => {
+export const fetchBlogs = async (language:any,page:number) => {
   try {
-    let url = `${Backend_Base_Url}/blogs`; // Default URL to fetch all blogs
+    let url = `${Backend_Base_Url}/blogs?language=${language}`; // Default URL to fetch all blogs
 
-    if (id) {
-      url = `${Backend_Base_Url}/blogs/${id}`; // If `id` is passed, fetch a specific blog
+    if(page){
+      url=url+"&page="+page
     }
 
     // Send GET request to the appropriate URL
     const response = await axios.get(url);
+
+    // Get the blogs or blog data from the response
+    const blogs = response.data.data; // Assuming the data is inside a 'data' field
+
+    // Check if there are blogs returned
+    if (!blogs || (Array.isArray(blogs) && blogs.length === 0)) {
+      throw new Error("No blog data found");
+    }
+
+    return blogs; // Return the blogs or a single blog
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    throw error;
+  }
+};
+
+export const fetchBlog = async (language:any,id: string) => {
+  try {
+   
+    
+    let url = `${Backend_Base_Url}/blogs/${id}?language=${language}`; // If `id` is passed, fetch a specific blog
+    
+
+    // Send GET request to the appropriate URL
+    const response = await axios.get(url);
+
+    // Get the blogs or blog data from the response
+    const blogs = response.data.data; // Assuming the data is inside a 'data' field
+
+    // Check if there are blogs returned
+    if (!blogs || (Array.isArray(blogs) && blogs.length === 0)) {
+      throw new Error("No blog data found");
+    }
+
+    return blogs; // Return the blogs or a single blog
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    throw error;
+  }
+};
+
+export const searchBlogs = async (language:any,search?:string) => {
+  try {
+
+    let url = `${Backend_Base_Url}/blogs?language=${language}`; // Default URL to fetch all blogs
+   
+    if(search!=="" && search!=null && search!=undefined)
+      url = `${Backend_Base_Url}/blogs?s=${search}&language=${language}`; // Default URL to fetch all blogs
+
+    // Send GET request to the appropriate URL
+    const response = await axios.get(url);
+
+    // Get the blogs or blog data from the response
+    const blogsData = response.data.data; // Assuming the data is inside a 'data' field
+
+    // Check if there are blogs returned
+    if (!blogsData || (Array.isArray(blogsData) && blogsData.length === 0)) {
+      throw new Error("No blog data found");
+    }
+
+    return blogsData; // Return the blogs or a single blog
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    throw error;
+  }
+};
+
+
+export const fetchFeatureBlogs = async (language:any) => {
+  try {
+    let url = `${Backend_Base_Url}/blogs?is_featured=1&language=${language}`; // Default URL to fetch all blogs
+
+  
+
+    // Send GET request to the appropriate URL
+    const response = await axios.get(url);
+    console.log(response);
 
     // Get the blogs or blog data from the response
     const blogs = response.data.data; // Assuming the data is inside a 'data' field

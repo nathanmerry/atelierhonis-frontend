@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Fade } from "react-awesome-reveal";
 import Image from "next/image";
 import SeoHead from "@/components/Layouts/SeoHead";
-import { fetchBlogs } from "@/lib/api";
+import { fetchBlog } from "@/lib/api";
 import { useI18n } from "@/hooks/useI18n";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
 import { BlogDetailContainer, BlogDetailPage, FeaturedImage } from "./styles";
@@ -63,7 +63,7 @@ const BlogDetail = () => {
 
       const getBlogDetail = async () => {
         try {
-          const blogData = await fetchBlogs(blogId);
+          const blogData = await fetchBlog(lang,blogId);
           console.log("BlogDetail:", blogData);
           setBlog(blogData);
         } catch (error) {
@@ -82,6 +82,7 @@ const BlogDetail = () => {
 
   const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${blog.thumbnail}`;
   const Backend_Base_Url = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
+  const page = sessionStorage.getItem('blogPage') || '1';
 
   return (
     <BlogDetailContainer>
@@ -114,10 +115,11 @@ const BlogDetail = () => {
         />
 
 
-        {/* Back Button */}
+        {/* Back Button */
+         }
         <br/>
         <Fade triggerOnce={true} delay={40} direction="right">
-          <BackButton href={`/${lang}/blogs`} onClick={() => redirect("/blogs")}>
+          <BackButton href={(page!='1')?`/${lang}/blogs?page=`+page:`/${lang}/blogs`} onClick={() => (page)?redirect("/blogs/?page="+page):redirect("/blogs")}>
             {t("BlogBanner.back")}
           </BackButton>
         </Fade>

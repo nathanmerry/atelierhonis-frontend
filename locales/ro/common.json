@@ -141,8 +141,8 @@
   "FurnitureToOrder": {
     "heading": "Mobilier la",
     "heading2": "comandă",
-    "itemheading1": "Consultață",
-    "itemparagraph1": "În procesul nostru de consultață, viziunea ta modelează fiecare pas, transformând ideile în realitate cu mobilier la comandă.",
+    "itemheading1": "Consultanță",
+    "itemparagraph1": "În procesul nostru de Consultanță, viziunea ta modelează fiecare pas, transformând ideile în realitate cu mobilier la comandă.",
     "itemheading2": "Proiectare",
     "itemparagraph2": "De la schițe 2D la concepte 3D, vă rafinăm viziunea, vă oferim proiectare și oferim prețuri avantajoase.",
     "itemheading3": "Execuţie",
@@ -151,13 +151,13 @@
   },
 
   "FurnitureToOrderDetailItems": {
-    "heading1": "I. Consultață:",
+    "heading1": "I. Consultanță:",
     "subHeading1": "În cadrul primelor noastre discuții, veți fi informat cu privire la următoarele etape:",
     "listItem1": "o discuție preliminară legată de tipul de mobilier, stilul dorit, materialul dorit, un buget minim și maxim și stabilirea primei întâlniri",
     "listItem2": "În cadrul primei întâlniri se vor stabili din nou materialele, se vor face măsurători la fața locului și identificarea celor mai adecvate soluții. Se va reface oferta inițială, se va semna contractul și se va efectua plata avansului de 50%",
     "listItem3": "estimarea timpilor de execuție.",
     "listItem4": "tot în cadrul primei vizite la domiciliu se fac măsurători și o schiță 2D",
-    "extra1": "În cadrul procesului de consultață, ideile și dorințele dumneavoastră sunt esențiale, iar cu ajutorul nostru acestea vor deveni realitate.",
+    "extra1": "În cadrul procesului de Consultanță, ideile și dorințele dumneavoastră sunt esențiale, iar cu ajutorul nostru acestea vor deveni realitate.",
 
     "heading2": "II. Proiectare:",
     "listItem5": "Analizarea tuturor soluțiilor tehnice, bazate pe schița 2D și măsurătorile din teren, precum și sugestiile primite de la client/poze",
@@ -176,7 +176,14 @@
   "BlogBanner": {
     "subHeading": "Bloguri",
     "heading": "Transformă-ți bucătăria într-o capodopera modernă",
-    "back":"Mergi înapoi!"
+    "back":"Mergi înapoi!",
+    "Search":"Căutare",
+    "SearchPlaceholder":"Introduceți cuvinte cheie",
+    "popularPosts":"Postări populare",
+    "readmore":"Citeşte mai mult",
+    "bptitle":"Ultimul","Previous":"Anterior",
+    "Next":"Următor",
+    "Page":"Pagină"
   },
 
   "TipsBanner": {

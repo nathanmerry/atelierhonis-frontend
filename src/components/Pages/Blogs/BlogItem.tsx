@@ -31,7 +31,7 @@ const BlogItem: React.FC<BlogItemDataType> = ({
   const { t,lang } = useI18n();
 
   const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${image}`;
-  console.log("imageUrl:", imageUrl);
+  //console.log("imageUrl:", imageUrl);
   return (
     <BlogItemWrapper>
       <Fade triggerOnce={true} delay={40} direction="left">
@@ -81,7 +81,7 @@ const BlogItem: React.FC<BlogItemDataType> = ({
           style={{
             cursor: "pointer"
           }}>
-            Citeşte mai mult
+            {t("BlogBanner.readmore")}
           </Link>
         </Fade>
       </div>

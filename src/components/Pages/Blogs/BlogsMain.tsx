@@ -8,7 +8,7 @@ import BlogItem, { BlogItemDataType } from "./BlogItem";
 import FeaturedBlogs from "./FeaturedBlogs";
 import { BlogsMainContainer, BlogsPagination } from "./styles";
 import { useEffect, useState } from "react";
-import { fetchBlogs } from "@/lib/api";
+import { fetchBlogs,fetchFeatureBlogs,searchBlogs } from "@/lib/api";
 import useTranslation from "next-translate/useTranslation";
 import { i18nConfig } from "../../../../i18n";
 import SeoHead from "@/components/Layouts/SeoHead";
@@ -17,7 +17,10 @@ import { languageDetector } from "@/lib/languageDetector";
 import { usePathname } from "next/navigation";
 import { ContactBtn } from "../Home/FurnitureTimeline";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
+import { useRouter } from 'next/router';
 import Link from "next/link";
+import { Button, Input } from "antd";
+import { FeaturedBlogsWrapper } from "./styles";
 
 interface Pagination {
   page: number;
@@ -27,12 +30,15 @@ interface Pagination {
 }
 
 const BlogsMain: React.FC = () => {
+
+  const router = useRouter();
   const { t,lang } = useI18n();
   const pathname = usePathname();
   const { redirect } = useRouteRedirect();
   const detectedLng = languageDetector.detect();
   const [blogs, setBlogs] = useState([]);
   const [featuredBlogs, setFeaturedBlogs] = useState([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [pagination, setPagination] = useState<Pagination>({
     page: 1,
     pageSize: 10,
@@ -43,8 +49,11 @@ const BlogsMain: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetchBlogs();
+        var page=pagination.page;
+        const pageNo = router.query.page || page;
+        const response = await fetchBlogs(detectedLng,parseInt(pageNo.toString()));
         const blogsData = response.data;
+       
 
         // Normalize the detectedLng to match the database values
         const normalizedLang = detectedLng === "ro" ? "rom" : detectedLng; // Map 'ro' to 'rom'
@@ -54,13 +63,19 @@ const BlogsMain: React.FC = () => {
           (blog: any) => blog.lang === normalizedLang
         );
 
-        // Separate the featured blogs and regular blogs
-        const featuredBlogs = filteredBlogs.filter(
-          (blog: any) => blog.is_featured === 1
-        );
+        
 
         setBlogs(filteredBlogs);
-        setFeaturedBlogs(featuredBlogs);
+        const FeatureResponse = await fetchFeatureBlogs(detectedLng);
+        const filteredFeatureBlogs = FeatureResponse.data;
+
+  
+        // Filter the blogs based on the normalized language
+        const filteredFeaturedBlogs = filteredFeatureBlogs.filter(
+          (blog: any) => blog.lang === normalizedLang
+        );
+        
+        setFeaturedBlogs(filteredFeaturedBlogs);
 
         setPagination({
           page: response.current_page,
@@ -69,7 +84,7 @@ const BlogsMain: React.FC = () => {
           total: response.total,
         });
 
-        console.log("Blogs data:", response);
+        //console.log("Blogs data:", response);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
@@ -81,11 +96,21 @@ const BlogsMain: React.FC = () => {
   // Handle page change
   const handlePageChange = (newPage: number) => {
     if (newPage < 1 || newPage > pagination.pageCount) return;
+
+    
     setPagination((prevPagination) => ({
       ...prevPagination,
       page: newPage,
-    }));
+    }));  
+    router.push(`/blogs?page=${newPage}`);
+    sessionStorage.setItem('blogPage', newPage.toString());
   };
+
+
+const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setSearchTerm(event.target.value.toLowerCase());
+};
+
 
   return (
     <ContainerMain>
@@ -113,16 +138,19 @@ const BlogsMain: React.FC = () => {
         
       </Fade>
 
-      {blogs.length > 0 && (
+     
         <BlogsMainContainer>
           <Fade triggerOnce={true} delay={40} direction="left">
             <h1 className="main_heading">
-              Ultimul <span>Post</span>
+              {t("BlogBanner.bptitle")} <span>Post</span>
             </h1>
           </Fade>
 
           <div className="blogs_grid">
-            <div className="blogs_list">
+            
+          <div className="blogs_list">
+          {blogs.length > 0 ? (
+            <div className="d">
               {blogs.map((item: any, index: number) => (
                 <BlogItem
                   image={item.thumbnail}
@@ -134,8 +162,68 @@ const BlogsMain: React.FC = () => {
                 />
               ))}
             </div>
+          ) : (
+            <div className="no_posts">
+              {detectedLng === "ro"
+                ? "Nu a fost găsită nicio postare."
+                : "No posts found."}
+            </div>
+          )}
+        </div>
+
             <div className="featured_list">
+              <FeaturedBlogsWrapper>
+              <div className="search_wrapper">
+                <Fade triggerOnce={true} delay={40} direction="right">
+                  <h2 className="title">{t("BlogBanner.Search")}</h2>
+                </Fade>
+                <Fade triggerOnce={true} delay={40} direction="right">
+                  <div className="input_wrapper">
+                    <Input
+                      className="search_input"
+                      placeholder={t("BlogBanner.SearchPlaceholder")}//Introduceți cuvinte cheie
+                      onChange={handleSearchInputChange}
+                      value={searchTerm}
+                    />
+                    <Button className="search_btn" onClick={async () => {
+                      const response = await searchBlogs(detectedLng, encodeURIComponent(searchTerm.toLowerCase()));
+                                    const blogsData = response.data;
+                                    console.log(blogsData);
+
+                                    if(blogsData!=null){
+
+                                    setSearchTerm(searchTerm.toLowerCase());
+                            
+                                    // Normalize the detectedLng to match the database values
+                                    const normalizedLang2 = detectedLng === "ro" ? "rom" : detectedLng; // Map 'ro' to 'rom'
+                            
+                                    // Filter the blogs based on the normalized language
+                                    const filteredwBlogs = blogsData.filter(
+                                      (blog: any) => blog.lang === normalizedLang2
+                                    );
+                                    setBlogs(filteredwBlogs);
+
+                                    setPagination({
+                                      page: response.current_page,
+                                      pageSize: response.per_page,
+                                      pageCount: response.last_page,
+                                      total: response.total,
+                                    });
+                                  }
+                        }}>
+                      <Image
+                        src="/Images/Icons/SearchIcon.svg"
+                        alt="search"
+                        height={17}
+                        width={17}
+                      />
+                    </Button>
+                  </div>
+                </Fade>
+              </div>
+              
               <FeaturedBlogs data={featuredBlogs} />
+              </FeaturedBlogsWrapper>
             </div>
           </div>
 
@@ -146,23 +234,24 @@ const BlogsMain: React.FC = () => {
                 <button
                   onClick={() => handlePageChange(pagination.page - 1)}
                   disabled={pagination.page <= 1}
-                >
-                  Previous
+                >{t("Previous")}
+                  
                 </button>
                 <span>
-                  Page {pagination.page} of {pagination.pageCount}
+                {t("Page")} {pagination.page} of {pagination.pageCount}
                 </span>
                 <button
                   onClick={() => handlePageChange(pagination.page + 1)}
                   disabled={pagination.page >= pagination.pageCount}
                 >
-                  Next
+                  {t("Next")}
+                  
                 </button>
               </BlogsPagination>
             </Fade>
           )}
         </BlogsMainContainer>
-      )}
+     
     </ContainerMain>
   );
 };
