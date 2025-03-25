@@ -88,6 +88,14 @@ const BlogsMain: React.FC = () => {
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
+
+      if (window.location.hash) {
+        const id = window.location.hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     };
 
     fetchData();
@@ -152,7 +160,7 @@ const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => 
           {blogs.length > 0 ? (
             <div className="d">
               {blogs.map((item: any, index: number) => (
-                <BlogItem
+                <BlogItem id={item.id}
                   image={item.thumbnail}
                   heading={item.title}
                   description={item.description}

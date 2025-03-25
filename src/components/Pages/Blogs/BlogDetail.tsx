@@ -119,7 +119,7 @@ const BlogDetail = () => {
          }
         <br/>
         <Fade triggerOnce={true} delay={40} direction="right">
-          <BackButton href={(page!='1')?`/${lang}/blogs?page=`+page:`/${lang}/blogs`} onClick={() => (page)?redirect("/blogs/?page="+page):redirect("/blogs")}>
+          <BackButton href={(page!='1')?`/${lang}/blogs?page=`+page+`#blog${blog.id}`:`/${lang}/blogs#blog${blog.id}`} onClick={() => (page)?redirect("/blogs/?page="+page+"#blog"+blog.id):redirect("/blogs#blog"+blog.id)}>
             {t("BlogBanner.back")}
           </BackButton>
         </Fade>

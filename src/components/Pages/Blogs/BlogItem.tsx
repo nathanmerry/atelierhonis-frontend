@@ -17,6 +17,7 @@ export type BlogItemDataType = {
   heading: string;
   description: string;
   link: string;
+  id:string;
   createdAt?: string;
 };
 
@@ -26,6 +27,7 @@ const BlogItem: React.FC<BlogItemDataType> = ({
   description,
   link,
   tag,
+  id
 }) => {
   const { redirect } = useRouteRedirect();
   const { t,lang } = useI18n();
@@ -33,7 +35,7 @@ const BlogItem: React.FC<BlogItemDataType> = ({
   const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${image}`;
   //console.log("imageUrl:", imageUrl);
   return (
-    <BlogItemWrapper>
+    <BlogItemWrapper id={`blog${id}`}>
       <Fade triggerOnce={true} delay={40} direction="left">
         <div className="image_wrapper">
         <Link 
