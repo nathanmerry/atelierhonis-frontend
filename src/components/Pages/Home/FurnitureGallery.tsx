@@ -219,14 +219,22 @@ const ImageWrapper = styled.div`
 `;
 
 const GalleryPics = [
-  "/Images/Home/Gallery1.png",
-  "/Images/Home/Gallery2.png",
-  "/Images/Home/Gallery3.png",
-  "/Images/Home/Gallery4.png",
-  "/Images/Home/Gallery5.png",
-  "/Images/Home/Gallery6.png",
-  "/Images/Home/Gallery7.png",
-  "/Images/Home/Gallery8.png",
+  "/Images/Home/gallery/image1.jpg",
+  "/Images/Home/gallery/image5.jpg",
+  "/Images/Home/gallery/image2.jpg",
+  "/Images/Home/gallery/image3.jpg",
+  "/Images/Home/gallery/image4.jpg",
+  "/Images/Home/gallery/image6.jpg",
+  "/Images/Home/gallery/image7.jpg",
+  "/Images/Home/gallery/image8.jpg",
+ // "/Images/Home/gallery/image9.jpg",
+  // "/Images/Home/Gallery2.png",
+  // "/Images/Home/Gallery3.png",
+  // "/Images/Home/Gallery4.png",
+  // "/Images/Home/Gallery5.png",
+  // "/Images/Home/Gallery6.png",
+  // "/Images/Home/Gallery7.png",
+  // "/Images/Home/Gallery8.png",
 ];
 
 const FullScreenModal = styled(Modal)`
@@ -249,7 +257,7 @@ const FullScreenModal = styled(Modal)`
           text-align:center;
           img {
             height: 100%;
-            width: auto;
+            width: 100%;
             object-fit: contain;
           }
         }
