@@ -22,7 +22,19 @@ interface Blog {
   thumbnail: string;
   created_at: string;
   updated_at: string;
+
+  // SEO fields
+  meta_head: string | null;
+  meta_title: string | null;
+  canonical_url: string | null;
+  robots_directives: string | null;
+  og_title: string | null;
+  og_description: string | null;
+  og_image: string | null;
+  twitter_card: string | null;
+  twitter_image: string | null;
 }
+
 
 // Styled Back Button
 const BackButton = styled(Link)`
@@ -63,7 +75,7 @@ const BlogDetail = () => {
 
       const getBlogDetail = async () => {
         try {
-          const blogData = await fetchBlog(lang,blogId);
+          const blogData = await fetchBlog(lang, blogId);
           console.log("BlogDetail:", blogData);
           setBlog(blogData);
         } catch (error) {
@@ -81,17 +93,23 @@ const BlogDetail = () => {
   if (!blog) return null;
 
   const imageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${blog.thumbnail}`;
+  const ogImageUrl = `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${blog.og_image}`;
   const Backend_Base_Url = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
-  const page = sessionStorage.getItem('blogPage') || '1';
+  const page = sessionStorage.getItem("blogPage") || "1";
 
   return (
     <BlogDetailContainer>
       <SeoHead
-        title={`Blog - ${blog.title} | ATELIER HONIS`}
-        description={blog.description || "No description available"}
-        keywords="blog mobilier, design de interior, mobilier personalizat, soluții de mobilier"
-        ogImage={`${Backend_Base_Url}/${imageUrl}`}
-        twitterImage={`${Backend_Base_Url}/${imageUrl}`}
+        metaTitle={blog.meta_title || blog.title}
+        description={blog.description}
+        keywords={`${blog.tags}, "blog mobilier, design de interior, mobilier personalizat, soluții de mobilier`}
+        canonicalUrl={blog.canonical_url}
+        robots={blog.robots_directives}
+        ogTitle={blog.og_title || blog.meta_title || blog.title}
+        ogImage={ogImageUrl || imageUrl}
+        twitterCard={blog.twitter_card}
+        twitterImage={blog.twitter_image || imageUrl}
+        metaHead={blog.meta_head}
       />
 
       <BlogDetailPage>
@@ -114,12 +132,21 @@ const BlogDetail = () => {
           }}
         />
 
-
-        {/* Back Button */
-         }
-        <br/>
+        {/* Back Button */}
+        <br />
         <Fade triggerOnce={true} delay={40} direction="right">
-          <BackButton href={(page!='1')?`/${lang}/blogs?page=`+page+`#blog${blog.id}`:`/${lang}/blogs#blog${blog.id}`} onClick={() => (page)?redirect("/blogs/?page="+page+"#blog"+blog.id):redirect("/blogs#blog"+blog.id)}>
+          <BackButton
+            href={
+              page != "1"
+                ? `/${lang}/blogs?page=` + page + `#blog${blog.id}`
+                : `/${lang}/blogs#blog${blog.id}`
+            }
+            onClick={() =>
+              page
+                ? redirect("/blogs/?page=" + page + "#blog" + blog.id)
+                : redirect("/blogs#blog" + blog.id)
+            }
+          >
             {t("BlogBanner.back")}
           </BackButton>
         </Fade>

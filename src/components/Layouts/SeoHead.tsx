@@ -1,41 +1,61 @@
+import parse from 'html-react-parser';
 import Head from "next/head";
 
 interface SeoHeadProps {
-  title: string;
-  description: string;
-  keywords?: string;
-  favicon?: string;
-  ogImage?: string;
-  twitterImage?: string;
+  metaTitle: string;
+  description?: string | null;
+  keywords?: string | null;
+  canonicalUrl?: string | null;
+  robots?: string | null;
+  ogTitle?: string | null;
+  ogDescription?: string | null;
+  ogImage?: string | null;
+  twitterCard?: string | null;
+  twitterImage?: string | null;
+  title?: string | null;
+  metaHead?: string | null; // raw HTML, optional
 }
 
 const SeoHead: React.FC<SeoHeadProps> = ({
-  title,
+  metaTitle,
   description,
-  keywords = "",
-  favicon = "/favicon.ico", 
-  ogImage = "/Images/default-home.jpg", 
-  twitterImage = "/Images/default-home.jpg", 
+  keywords,
+  canonicalUrl,
+  robots,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  twitterCard,
+  twitterImage,
+  metaHead,
 }) => {
   return (
     <Head>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
+      <title>{metaTitle}</title>
+      <meta name="description" content={description || ogDescription || ""} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="robots" content={robots ?? "index, follow"} />
 
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:url" content="https://yourwebsite.com" />
+      {/* Canonical URL */}
+      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={twitterImage} />
+      {/* Open Graph */}
+      <meta property="og:title" content={ogTitle || metaTitle} />
+      {ogDescription && <meta property="og:description" content={ogDescription} />}
+      <meta property="og:image" content={ogImage || "/Images/default-home.jpg"} />
+      <meta property="og:type" content="article" />
+      {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
 
-      <link rel="icon" href={favicon} />
+      {/* Twitter */}
+      <meta name="twitter:card" content={twitterCard || "summary_large_image"} />
+      <meta name="twitter:title" content={ogTitle || metaTitle} />
+      {ogDescription && <meta name="twitter:description" content={ogDescription} />}
+      <meta name="twitter:image" content={twitterImage || "/Images/default-home.jpg"} />
+
+      {/* Optional raw HTML injection */}
+      {metaHead && <>{parse(metaHead)}</>}
     </Head>
   );
 };
 
-export default SeoHead;
+export default SeoHead

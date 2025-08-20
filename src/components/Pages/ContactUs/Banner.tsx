@@ -106,11 +106,15 @@ const ContactUsBanner: React.FC = () => {
   return (
     <>
       <SeoHead
-        title="Contactaţi-ne - ATELIER HONIS"
+        metaTitle="Contactaţi-ne - ATELIER HONIS"
         description="Contactați ATELIER HONIS pentru a discuta despre proiectele de mobilier la comandă. Ne puteți trimite un mesaj sau ne puteți vizita la atelierul nostru pentru consultații personalizate."
         keywords="contact, mobilier personalizat, proiecte de mobilă, ATELIER HONIS"
+        ogTitle="Contactaţi-ne - ATELIER HONIS"
+        ogDescription="Contactați ATELIER HONIS pentru a discuta despre proiectele de mobilier la comandă. Ne puteți trimite un mesaj sau ne puteți vizita la atelierul nostru pentru consultații personalizate."
         ogImage="/Images/CustomFurniture/Furniture7.png"
+        twitterCard="summary_large_image"
         twitterImage="/Images/CustomFurniture/Furniture7.png"
+        robots="index, follow"
       />
 
       <ContactUsBannerWrapper>

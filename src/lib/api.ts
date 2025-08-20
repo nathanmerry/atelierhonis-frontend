@@ -7,12 +7,12 @@ interface FetchBlogsParams {
   pageSize: number;
 }
 
-export const fetchBlogs = async (language:any,page:number) => {
+export const fetchBlogs = async (language: any, page: number) => {
   try {
     let url = `${Backend_Base_Url}/blogs?language=${language}`; // Default URL to fetch all blogs
 
-    if(page){
-      url=url+"&page="+page
+    if (page) {
+      url = url + "&page=" + page;
     }
 
     // Send GET request to the appropriate URL
@@ -33,12 +33,9 @@ export const fetchBlogs = async (language:any,page:number) => {
   }
 };
 
-export const fetchBlog = async (language:any,id: string) => {
+export const fetchBlog = async (language: any, id: string) => {
   try {
-   
-    
     let url = `${Backend_Base_Url}/blogs/${id}?language=${language}`; // If `id` is passed, fetch a specific blog
-    
 
     // Send GET request to the appropriate URL
     const response = await axios.get(url);
@@ -58,12 +55,11 @@ export const fetchBlog = async (language:any,id: string) => {
   }
 };
 
-export const searchBlogs = async (language:any,search?:string) => {
+export const searchBlogs = async (language: any, search?: string) => {
   try {
-
     let url = `${Backend_Base_Url}/blogs?language=${language}`; // Default URL to fetch all blogs
-   
-    if(search!=="" && search!=null && search!=undefined)
+
+    if (search !== "" && search != null && search != undefined)
       url = `${Backend_Base_Url}/blogs?s=${search}&language=${language}`; // Default URL to fetch all blogs
 
     // Send GET request to the appropriate URL
@@ -84,12 +80,9 @@ export const searchBlogs = async (language:any,search?:string) => {
   }
 };
 
-
-export const fetchFeatureBlogs = async (language:any) => {
+export const fetchFeatureBlogs = async (language: any) => {
   try {
     let url = `${Backend_Base_Url}/blogs?is_featured=1&language=${language}`; // Default URL to fetch all blogs
-
-  
 
     // Send GET request to the appropriate URL
     const response = await axios.get(url);
@@ -148,5 +141,24 @@ export const fetchTermsAndConditions = async (locale: string) => {
   } catch (error) {
     console.error("Error fetching terms and conditions:", error);
     throw error;
+  }
+};
+
+export const fetchSinglePageBySlug = async (slug: string) => {
+  try {
+    let url = `${Backend_Base_Url}/single-pages/slug${slug}`; // If `id` is passed, fetch a specific blog
+
+    const response = await axios.get(url);
+
+    const page = response.data.data;
+
+    if (!page || (Array.isArray(page) && page.length === 0)) {
+      throw new Error("No page data found");
+    }
+
+    return page;
+  } catch (error) {
+    console.error("Error fetching page:", error);
+    // throw error;
   }
 };

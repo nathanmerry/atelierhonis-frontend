@@ -3,6 +3,9 @@ import { FurnitureToOrderDetailItemsType } from "@/components/Pages/About/Furnit
 import dynamic from "next/dynamic";
 import { ContainerMain } from "../../../../public/Styles/Layout/styles";
 import SeoHead from "@/components/Layouts/SeoHead";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { fetchSinglePageBySlug } from "@/lib/api";
+import { i18nConfig } from "../../../../i18n";
 
 const DefaultLayout = dynamic(
   () => import("@/components/Layouts/DefaultLayout"),
@@ -110,15 +113,44 @@ const CustomFurnitureItems: FurnitureToOrderDetailItemsType[] = [
   },
 ];
 
-const CustomFurniturePage: React.FC = () => {
+interface CustomFurniturePageProps {
+  pageData: {
+    id: number;
+    slug: string;
+    language: string;
+    h1: string;
+    meta_title: string;
+    meta_description: string;
+    keywords: string;
+    canonical_url: string;
+    robots_directives: string;
+    og_title: string;
+    og_description: string;
+    og_image: string;
+    twitter_card: string;
+    twitter_image: null;
+    created_at: string;
+    updated_at: string;
+  };
+  locale: string;
+}
+
+const CustomFurniturePage: React.FC<CustomFurniturePageProps> = ({
+  pageData,
+  locale,
+}: CustomFurniturePageProps) => {
   return (
     <DefaultLayout>
       <SeoHead
-        title="Mobila la comanda - ATELIER HONIS"
-        description="La ATELIER HONIS, oferim mobilier personalizat la comandă, adaptat nevoilor și preferințelor tale. Descoperă cum putem crea piese unice pentru casa ta."
-        keywords="mobilier personalizat, mobilier la comandă, design mobilier, mobilier de calitate, ATELIER HONIS"
-        ogImage="/Images/custom-furniture.jpg"
-        twitterImage="/Images/custom-furniture.jpg"
+        metaTitle={pageData.meta_title}
+        description={pageData.meta_description}
+        keywords={pageData.keywords}
+        ogTitle={pageData.og_title}
+        ogDescription={pageData.og_description}
+        ogImage={pageData.og_image}
+        twitterCard={pageData.twitter_card}
+        twitterImage={pageData.twitter_image}
+        robots="index, follow"
       />
 
       <CustomFurnitureBanner />
@@ -130,4 +162,45 @@ const CustomFurniturePage: React.FC = () => {
     </DefaultLayout>
   );
 };
+// Generate static paths for all supported locales
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = i18nConfig.locales.map((locale) => ({
+    params: { locale },
+  }));
+
+  return {
+    paths,
+    fallback: false, // Set to false to return 404 for unsupported locales
+  };
+};
+
+// Generate static props for each locale
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const locale = params?.locale as string;
+
+  try {
+    // Fetch page data for the specific locale
+    const pageData = await fetchSinglePageBySlug(`/${locale}/custom-furniture`);
+
+    return {
+      props: {
+        pageData,
+        locale,
+      },
+      // Revalidate every hour (3600 seconds) for ISR
+      revalidate: 3600,
+    };
+  } catch (error) {
+    console.error(`Error fetching data for locale ${locale}:`, error);
+
+    return {
+      props: {
+        pageData: null,
+        locale,
+      },
+      revalidate: 3600,
+    };
+  }
+};
+
 export default CustomFurniturePage;

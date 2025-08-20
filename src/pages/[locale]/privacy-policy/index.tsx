@@ -102,11 +102,15 @@ const PrivacyPolicyPage: NextPage = () => {
   return (
     <DefaultLayout>
       <SeoHead
-        title={title}
+        metaTitle={title}
         description={description}
         keywords={keywords}
+        ogTitle={title}
+        ogDescription={description}
         ogImage="/Images/custom-furniture.jpg"
+        twitterCard="summary_large_image"
         twitterImage="/Images/custom-furniture.jpg"
+        robots="index, follow"
       />
 
       <PolicyWrapper>

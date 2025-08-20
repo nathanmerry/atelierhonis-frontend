@@ -123,11 +123,15 @@ const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => 
   return (
     <ContainerMain>
       <SeoHead
-        title="Bloguri - ATELIER HONIS"
+        metaTitle="Bloguri - ATELIER HONIS"
         description="Citiți ultimele bloguri de pe ATELIER HONIS despre mobilier la comandă, design personalizat, și cele mai noi tendințe în amenajarea casei."
         keywords="blog mobilier, design interior, mobilier personalizat, tendințe mobilier, ATELIER HONIS"
+        ogTitle="Bloguri - ATELIER HONIS"
+        ogDescription="Citiți ultimele bloguri de pe ATELIER HONIS despre mobilier la comandă, design personalizat, și cele mai noi tendințe în amenajarea casei."
         ogImage="/Images/About/AboutHonisBanner.png"
+        twitterCard="summary_large_image"
         twitterImage="/Images/About/AboutHonisBanner.png"
+        robots="index, follow"
       />
 
       <Fade triggerOnce={true} delay={40} direction="down" >
