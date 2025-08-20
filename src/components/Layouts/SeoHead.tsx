@@ -36,6 +36,8 @@ const SeoHead: React.FC<SeoHeadProps> = ({
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="robots" content={robots ?? "index, follow"} />
 
+      <link rel="icon" href="/favicon.ico" />
+    
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
