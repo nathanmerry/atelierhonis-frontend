@@ -12,11 +12,17 @@ export const useRouteRedirect = () => {
   const router = useRouter();
 
   const redirect = (to: string, replace?: boolean) => {
+    // Skip redirect for public files like favicon, robots.txt, etc.
+    const publicFileExtensions = [".ico", ".png", ".jpg", ".svg", ".xml", ".txt", ".json"];
+    const isPublicFile = publicFileExtensions.some((ext) => to.endsWith(ext));
+    if (isPublicFile) return;
+
     const detectedLng = i18nConfig.locales.includes(
       router.query.locale as Locale
     )
       ? String(router.query.locale)
       : languageDetector.detect();
+
     if (to.startsWith("/" + detectedLng) && router.route === "/404") {
       // prevent endless loop
       router.replace("/" + detectedLng + router.route);
@@ -26,6 +32,7 @@ export const useRouteRedirect = () => {
     if (detectedLng && languageDetector.cache) {
       languageDetector.cache(detectedLng);
     }
+
     if (replace) {
       router.replace("/" + detectedLng + to);
     } else {
