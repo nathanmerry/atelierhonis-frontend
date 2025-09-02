@@ -102,7 +102,7 @@ const BlogDetail = () => {
       <SeoHead
         metaTitle={blog.meta_title || blog.title}
         description={blog.description}
-        keywords={`${blog.tags}, "blog mobilier, design de interior, mobilier personalizat, soluții de mobilier`}
+        keywords={`"${blog.tags}, blog mobilier, design de interior, mobilier personalizat, soluții de mobilier`}
         canonicalUrl={blog.canonical_url}
         robots={blog.robots_directives}
         ogTitle={blog.og_title || blog.meta_title || blog.title}
