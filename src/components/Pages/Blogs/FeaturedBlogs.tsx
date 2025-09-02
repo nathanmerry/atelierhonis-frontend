@@ -11,9 +11,10 @@ import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { useRouteRedirect } from "@/hooks/useRouteRedirect";
 import { languageDetector } from "@/lib/languageDetector";
+import { Blog } from "@/types/blog";
 
 type FeaturedBlogsType = {
-  data: any[];
+  data: Blog[];
 };
 
 const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
@@ -32,7 +33,7 @@ const FeaturedBlogs: React.FC<FeaturedBlogsType> = ({ data }) => {
         </Fade>
         {data.map((item, index) => {
           const heading = item.title.toLowerCase(); // Ensure it's lowercase for search
-          const date = new Date(item.updated_at ?? "").toLocaleDateString(); // Format the date
+          const date = new Date(item.published_date ?? item.updated_at ?? "").toLocaleDateString(); // Format the date
 
           const isVisible = true;
 
