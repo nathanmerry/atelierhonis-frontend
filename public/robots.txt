@@ -1,6 +1,10 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
 
 # Host
 Host: https://atelierhonis.ro

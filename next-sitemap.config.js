@@ -1,13 +1,13 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://atelierhonis.ro',
-  generateRobotsTxt: true, // (optional)
+  // generateRobotsTxt: true, // (optional)
   // optional
-  robotsTxtOptions: {
-    additionalSitemaps: [
-      'https://atelierhonis.ro/sitemap.xml',
-    ],
-  },
+  // robotsTxtOptions: {
+  //   additionalSitemaps: [
+  //     'https://atelierhonis.ro/sitemap.xml',
+  //   ],
+  // },
   // Handle internationalization
   alternateRefs: [
     {
