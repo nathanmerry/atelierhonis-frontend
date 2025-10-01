@@ -1,48 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://atelierhonis.ro</loc><lastmod>2025-09-02T05:15:59.798Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro"/></url>
-<url><loc>https://atelierhonis.ro/en/blogs</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en/blogs"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en/blogs"/></url>
-<url><loc>https://atelierhonis.ro/ro/blogs</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro/blogs"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro/blogs"/></url>
-<url><loc>https://atelierhonis.ro/en</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>1</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en"/></url>
-<url><loc>https://atelierhonis.ro/ro</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>1</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro"/></url>
-<url><loc>https://atelierhonis.ro/en/about-us</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en/about-us"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en/about-us"/></url>
-<url><loc>https://atelierhonis.ro/ro/about-us</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro/about-us"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro/about-us"/></url>
-<url><loc>https://atelierhonis.ro/en/custom-furniture</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en/custom-furniture"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en/custom-furniture"/></url>
-<url><loc>https://atelierhonis.ro/ro/custom-furniture</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro/custom-furniture"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro/custom-furniture"/></url>
-<url><loc>https://atelierhonis.ro/en/contact-us</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en/contact-us"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en/contact-us"/></url>
-<url><loc>https://atelierhonis.ro/ro/contact-us</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro/contact-us"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro/contact-us"/></url>
-<url><loc>https://atelierhonis.ro/en/privacy-policy</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://atelierhonis.ro/en/terms-and-condition</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://atelierhonis.ro/ro/privacy-policy</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://atelierhonis.ro/ro/terms-and-condition</loc><lastmod>2025-09-02T05:15:59.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/1</loc><lastmod>2025-09-02T05:11:57.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/2</loc><lastmod>2025-08-26T07:17:52.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/3</loc><lastmod>2025-08-14T02:20:28.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/4</loc><lastmod>2025-08-26T07:26:42.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/5</loc><lastmod>2025-08-14T13:43:05.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/6</loc><lastmod>2025-08-26T07:52:27.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/7</loc><lastmod>2025-08-26T07:50:11.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/8</loc><lastmod>2025-08-26T07:33:40.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/10</loc><lastmod>2025-08-14T13:43:40.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/14</loc><lastmod>2025-08-26T07:49:08.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/15</loc><lastmod>2025-08-26T07:46:30.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/16</loc><lastmod>2025-08-26T07:45:25.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/17</loc><lastmod>2025-08-26T07:39:19.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/19</loc><lastmod>2025-08-26T12:49:57.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/en/blog-detail/20</loc><lastmod>2025-08-26T13:10:35.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/1</loc><lastmod>2025-09-02T05:11:57.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/2</loc><lastmod>2025-08-26T07:17:52.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/3</loc><lastmod>2025-08-14T02:20:28.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/4</loc><lastmod>2025-08-26T07:26:42.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/5</loc><lastmod>2025-08-14T13:43:05.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/6</loc><lastmod>2025-08-26T07:52:27.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/7</loc><lastmod>2025-08-26T07:50:11.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/8</loc><lastmod>2025-08-26T07:33:40.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/10</loc><lastmod>2025-08-14T13:43:40.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/14</loc><lastmod>2025-08-26T07:49:08.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/15</loc><lastmod>2025-08-26T07:46:30.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/16</loc><lastmod>2025-08-26T07:45:25.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/17</loc><lastmod>2025-08-26T07:39:19.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/19</loc><lastmod>2025-08-26T12:49:57.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-<url><loc>https://atelierhonis.ro/ro/blog-detail/20</loc><lastmod>2025-08-26T13:10:35.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro</loc><lastmod>2025-10-01T06:03:24.460Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro"/></url>
+<url><loc>https://atelierhonis.ro/en/contact-us</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en/contact-us"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en/contact-us"/></url>
+<url><loc>https://atelierhonis.ro/ro/contact-us</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro/contact-us"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro/contact-us"/></url>
+<url><loc>https://atelierhonis.ro/en</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>1</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en"/></url>
+<url><loc>https://atelierhonis.ro/ro</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>1</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro"/></url>
+<url><loc>https://atelierhonis.ro/en/custom-furniture</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en/custom-furniture"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en/custom-furniture"/></url>
+<url><loc>https://atelierhonis.ro/ro/custom-furniture</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro/custom-furniture"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro/custom-furniture"/></url>
+<url><loc>https://atelierhonis.ro/en/about-us</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en/about-us"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en/about-us"/></url>
+<url><loc>https://atelierhonis.ro/ro/about-us</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro/about-us"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro/about-us"/></url>
+<url><loc>https://atelierhonis.ro/en/blogs</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/en/blogs"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/en/blogs"/></url>
+<url><loc>https://atelierhonis.ro/ro/blogs</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="en" href="https://atelierhonis.ro/en/ro/blogs"/><xhtml:link rel="alternate" hreflang="ro" href="https://atelierhonis.ro/ro/ro/blogs"/></url>
+<url><loc>https://atelierhonis.ro/en/privacy-policy</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://atelierhonis.ro/en/terms-and-condition</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://atelierhonis.ro/ro/privacy-policy</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://atelierhonis.ro/ro/terms-and-condition</loc><lastmod>2025-10-01T06:03:24.461Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/24</loc><lastmod>2025-09-08T08:48:45.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/23</loc><lastmod>2025-09-16T08:00:15.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/20</loc><lastmod>2025-09-02T08:33:24.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/19</loc><lastmod>2025-09-02T09:45:12.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/17</loc><lastmod>2025-09-02T09:43:44.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/16</loc><lastmod>2025-09-02T09:41:20.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/15</loc><lastmod>2025-09-02T09:40:09.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/14</loc><lastmod>2025-09-02T09:38:45.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/10</loc><lastmod>2025-09-03T08:10:49.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/8</loc><lastmod>2025-09-03T08:10:09.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/7</loc><lastmod>2025-09-02T09:16:25.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/6</loc><lastmod>2025-09-03T08:09:45.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/5</loc><lastmod>2025-09-03T08:09:29.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/4</loc><lastmod>2025-09-03T10:04:58.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/3</loc><lastmod>2025-09-11T07:43:44.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/2</loc><lastmod>2025-09-03T08:08:22.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/en/blog-detail/1</loc><lastmod>2025-09-10T06:56:23.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/24</loc><lastmod>2025-09-08T08:48:45.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/23</loc><lastmod>2025-09-16T08:00:15.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/20</loc><lastmod>2025-09-02T08:33:24.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/19</loc><lastmod>2025-09-02T09:45:12.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/17</loc><lastmod>2025-09-02T09:43:44.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/16</loc><lastmod>2025-09-02T09:41:20.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/15</loc><lastmod>2025-09-02T09:40:09.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/14</loc><lastmod>2025-09-02T09:38:45.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/10</loc><lastmod>2025-09-03T08:10:49.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/8</loc><lastmod>2025-09-03T08:10:09.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/7</loc><lastmod>2025-09-02T09:16:25.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/6</loc><lastmod>2025-09-03T08:09:45.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/5</loc><lastmod>2025-09-03T08:09:29.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/4</loc><lastmod>2025-09-03T10:04:58.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/3</loc><lastmod>2025-09-11T07:43:44.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/2</loc><lastmod>2025-09-03T08:08:22.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+<url><loc>https://atelierhonis.ro/ro/blog-detail/1</loc><lastmod>2025-09-10T06:56:23.000000Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
 </urlset>

@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "preview": "serve out/ -p 3000",
-    "postbuild": "next-sitemap"
+    "preview": "serve out/ -p 3000"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.1",
