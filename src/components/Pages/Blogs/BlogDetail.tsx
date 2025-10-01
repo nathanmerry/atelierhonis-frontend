@@ -4,6 +4,11 @@ import styled from "styled-components";
 import Link from "next/link";
 import { Fade } from "react-awesome-reveal";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import SeoHead from "@/components/Layouts/SeoHead";
 import { fetchBlog } from "@/lib/api";
 import { useI18n } from "@/hooks/useI18n";
@@ -33,6 +38,86 @@ const BackButton = styled(Link)`
 
   &:hover {
     background: #e65c00; /* Slightly darker on hover */
+  }
+`;
+
+// Styled Image Carousel Container
+const ImageCarousel = styled.div`
+  margin: 2rem 0;
+
+  .image-carousel {
+    padding: 0;
+
+    .swiper-slide {
+      height: auto;
+      width: 100% !important;
+    }
+
+    .carousel_image {
+      width: 100%;
+      height: 620px;
+      border-radius: 1rem;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #ff6f00;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-top: -20px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+
+      &:after {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: scale(1.1);
+      }
+    }
+
+    .swiper-pagination {
+      bottom: -40px;
+
+      .swiper-pagination-bullet {
+        background: #ccc;
+        opacity: 0.7;
+
+        &.swiper-pagination-bullet-active {
+          background: #ff6f00;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 1rem 0;
+
+    .image-carousel {
+      padding: 0 0.5rem;
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 35px;
+        height: 35px;
+        margin-top: -17.5px;
+
+        &:after {
+          font-size: 14px;
+        }
+      }
+    }
   }
 `;
 
@@ -72,6 +157,7 @@ const BlogDetail = () => {
   const Backend_Base_Url = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
   const page = sessionStorage.getItem("blogPage") || "1";
 
+  console.log(imageUrl, blog.additional_thumbnails);
   return (
     <BlogDetailContainer>
       <SeoHead
@@ -88,13 +174,50 @@ const BlogDetail = () => {
       />
 
       <BlogDetailPage>
-        <FeaturedImage
-          src={imageUrl}
-          alt="BackgroundBanner"
-          height={620}
-          width={1440}
-          className="image_banner"
-        />
+        {blog.additional_thumbnails?.length > 0 ? (
+          <ImageCarousel>
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={0}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
+              className="image-carousel"
+            >
+              {[blog.thumbnail, ...blog.additional_thumbnails].map(
+                (thumbnail, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      className="carousel_image"
+                      style={{
+                        backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}storage/uploads/blogs/${thumbnail})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        height: '620px',
+                        width: '100%'
+                      }}
+                      role="img"
+                      aria-label={`Additional Image ${index + 1}`}
+                    />
+                  </SwiperSlide>
+                )
+              )}
+            </Swiper>
+          </ImageCarousel>
+        ) : (
+          <FeaturedImage
+            src={imageUrl}
+            alt="BackgroundBanner"
+            height={620}
+            width={1440}
+            className="image_banner"
+          />
+        )}
         <h1 className="main_title">{blog.title}</h1>
         <p className="category">{blog.category}</p>
         <div

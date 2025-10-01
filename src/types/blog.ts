@@ -11,6 +11,8 @@ export interface Blog {
   created_at: string;
   updated_at: string;
 
+  additional_thumbnails: string[];
+
   // SEO fields
   meta_head: string | null;
   meta_title: string | null;
